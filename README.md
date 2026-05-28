@@ -10,12 +10,11 @@ Shared UI assets for MikroTik web apps:
 - `ui/images/ui`: shared UI icons
 - `ui/images/lang`: shared language icons
 - `ui/i18n`: shared translation files
-- `scripts/sync-to-project.ps1`: sync script for consumer repos
 
-## Sync Usage
-From this repo:
+## Consumption Model
+Consumer repos pull these assets automatically during GHCR publish builds from:
+- `ovikiss/mikrotik-traffic-monitor`
+- `ovikiss/mikrotik-container-update-gui`
 
-```powershell
-.\scripts\sync-to-project.ps1 -ProjectPath "C:\path\to\mikrotik-traffic-monitor" -ProjectType traffic-monitor
-.\scripts\sync-to-project.ps1 -ProjectPath "C:\path\to\mikrotik-container-update-gui" -ProjectType container-update
-```
+The sync is handled in each repo by `.github/workflows/docker-publish.yml` before Docker build.
+No manual local sync scripts are required.
