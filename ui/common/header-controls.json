@@ -1,0 +1,10 @@
+{
+  "order": ["themeStyle", "theme", "fontSize", "pollInterval", "language"],
+  "visible": {
+    "themeStyle": true,
+    "theme": true,
+    "fontSize": true,
+    "pollInterval": true,
+    "language": true
+  }
+}
