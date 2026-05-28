@@ -1,12 +1,26 @@
-﻿[
-  {
-    "value": "modern",
-    "label": { "en": "Modern", "ro": "Modern" },
-    "css": "style-modern.css"
-  },
-  {
-    "value": "classic",
-    "label": { "en": "Classic", "ro": "Clasic" },
-    "css": "style-classic.css"
-  }
+[
+    {
+        "value":  "modern",
+        "label":  {
+                      "en":  "Modern",
+                      "ro":  "Modern"
+                  },
+        "css":  "style-modern.css"
+    },
+    {
+        "value":  "classic",
+        "label":  {
+                      "en":  "Classic",
+                      "ro":  "Clasic"
+                  },
+        "css":  "style-classic.css"
+    },
+    {
+        "value":  "glass",
+        "label":  {
+                      "en":  "Glass",
+                      "ro":  "Glass"
+                  },
+        "css":  "style-glass.css"
+    }
 ]
