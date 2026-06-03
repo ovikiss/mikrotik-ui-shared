@@ -37,6 +37,7 @@
           </g>
         </svg>
         <span class="brand-text" id="brand-text"></span>
+        <span class="brand-version" id="brand-version" aria-label="Version"></span>
       </h1>
       <p class="subtitle" id="subtitle"></p>
     </div>
