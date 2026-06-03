@@ -1168,3 +1168,110 @@
       display: table-row;
       height: 2.4em;
     }
+
+    /* Glass dashboard frame for app-style projects such as MCUG. */
+    .app {
+      width: calc(100% - 48px);
+      max-width: 1400px;
+      margin: 24px 24px 48px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px;
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      box-shadow: var(--glass-shadow), var(--glass-inset);
+      box-sizing: border-box;
+    }
+
+    .app > .topbar {
+      padding-bottom: 28px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    html[data-theme="light"] .app > .topbar {
+      border-bottom-color: rgba(15, 23, 42, 0.06);
+    }
+
+    .app .panel {
+      margin-top: 24px;
+      background: transparent !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      box-shadow: none !important;
+    }
+
+    .app .panel:first-of-type {
+      margin-top: 0;
+    }
+
+    .app .status-row {
+      justify-content: flex-start;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 0.92em;
+      font-weight: 700;
+    }
+
+    .app .toolbar {
+      margin-bottom: 18px;
+    }
+
+    .app .table-wrap {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.02);
+      box-shadow: var(--glass-inset);
+    }
+
+    html[data-theme="light"] .app .table-wrap {
+      background: rgba(255, 255, 255, 0.20);
+    }
+
+    .app .containers-table,
+    .app .activity-table {
+      min-width: 1120px;
+    }
+
+    .app .data-table th {
+      font-size: 0.76em;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .app .data-table th,
+    .app .data-table td {
+      padding: 0.9em 1.1em;
+    }
+
+    .app .data-table thead th:first-child,
+    .app .data-table thead th:last-child {
+      border-radius: 0;
+    }
+
+    .app h2 {
+      margin: 0 0 14px;
+      color: var(--text);
+      font-size: 1.25em;
+      letter-spacing: -0.01em;
+    }
+
+    @media (max-width: 760px) {
+      .app {
+        width: calc(100% - 24px);
+        margin: 12px;
+        padding: 18px;
+        border-radius: 20px;
+      }
+
+      .app > .topbar {
+        padding-bottom: 18px;
+        margin-bottom: 18px;
+      }
+    }
