@@ -64,6 +64,8 @@
   "activityTime": "Time",
   "activityEvent": "Event",
   "activityDetails": "Details",
+  "activityNoDetails": "No details",
+  "activityShowDetails": "Show details",
   "check": "Check",
   "rollback": "Rollback",
   "unchecked": "unchecked",

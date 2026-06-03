@@ -64,6 +64,8 @@
   "activityTime": "Ora",
   "activityEvent": "Eveniment",
   "activityDetails": "Detalii",
+  "activityNoDetails": "Fără detalii",
+  "activityShowDetails": "Arată detalii",
   "check": "Verifică",
   "rollback": "Rollback",
   "unchecked": "neverificat",
