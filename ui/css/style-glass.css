@@ -1086,3 +1086,85 @@
         min-width: min(100%, 18em);
       }
     }
+
+    /* Shared data/activity table polish. */
+    .data-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 1em;
+    }
+
+    .data-table th {
+      background: var(--table-head);
+      color: var(--text);
+      font-weight: 800;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .data-table th,
+    .data-table td {
+      border-bottom: 1px solid var(--table-border);
+      padding: 0.58em 0.72em;
+      text-align: left;
+    }
+
+    .data-table thead th:first-child {
+      border-top-left-radius: 14px;
+      border-bottom-left-radius: 14px;
+    }
+
+    .data-table thead th:last-child {
+      border-top-right-radius: 14px;
+      border-bottom-right-radius: 14px;
+    }
+
+    .data-table tbody tr:hover td {
+      background: color-mix(in srgb, var(--table-head) 36%, transparent);
+    }
+
+    .activity-wrap {
+      border: 0.5px solid var(--table-border);
+      border-radius: 16px;
+      background: color-mix(in srgb, var(--table-head) 26%, transparent);
+      box-shadow: var(--glass-inset);
+    }
+
+    .activity-table {
+      min-width: 760px;
+    }
+
+    .activity-table th:nth-child(1),
+    .activity-table td:nth-child(1) {
+      width: 10.5em;
+      white-space: nowrap;
+    }
+
+    .activity-table th:nth-child(2),
+    .activity-table td:nth-child(2) {
+      width: 42%;
+    }
+
+    .activity-time {
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .activity-event {
+      color: var(--text);
+      font-weight: 650;
+    }
+
+    .activity-details {
+      color: var(--muted);
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-size: 0.86em;
+    }
+
+    .activity-table tbody:empty::after {
+      content: "";
+      display: table-row;
+      height: 2.4em;
+    }
