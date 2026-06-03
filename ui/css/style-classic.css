@@ -218,3 +218,284 @@
       .lang-toggle, .theme-toggle { min-height: 42px; padding: 7px 10px; }
       .lang-item, .theme-item { min-height: 42px; padding: 8px 10px; }
     }
+
+    /* Shared app controls used by MikroTik container/admin UIs. */
+    .app {
+      width: 100%;
+      max-width: none;
+      margin: 0 auto;
+    }
+
+    .panel {
+      margin-top: 18px;
+      background: var(--card);
+      border: 0.5px solid var(--border);
+      border-radius: 20px;
+      padding: 16px;
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      box-shadow: var(--glass-shadow), var(--glass-inset);
+    }
+
+    .status-row,
+    .toolbar,
+    .row-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .status-row {
+      justify-content: space-between;
+      margin-bottom: 12px;
+      color: var(--text);
+      font-weight: 650;
+    }
+
+    .badge,
+    .status-pill,
+    .update-pill {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      border-radius: 999px;
+      padding: 0.22em 0.62em;
+      background: color-mix(in srgb, var(--table-head) 72%, transparent);
+      border: 0.5px solid color-mix(in srgb, var(--border) 78%, transparent);
+      color: var(--text);
+      box-shadow: var(--glass-inset);
+    }
+
+    .badge.ok,
+    .update-pill.current {
+      color: color-mix(in srgb, var(--bar-max) 72%, var(--text));
+      background: color-mix(in srgb, var(--bar-max) 22%, var(--card-strong));
+    }
+
+    .badge.error,
+    .update-pill.available {
+      color: #ffd36a;
+      background: color-mix(in srgb, #f59e0b 26%, var(--card-strong));
+    }
+
+    .update-pill.unknown {
+      color: var(--muted);
+    }
+
+    .toolbar {
+      margin-bottom: 14px;
+    }
+
+    .btn {
+      --btn-bg: var(--card-strong);
+      --btn-border: var(--border);
+      --btn-color: var(--text);
+      --btn-shadow: var(--glass-inset);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.48em;
+      min-height: 38px;
+      border: 0.5px solid var(--btn-border);
+      border-radius: 12px;
+      padding: 0.48em 0.82em;
+      background: var(--btn-bg);
+      color: var(--btn-color);
+      font: inherit;
+      font-weight: 700;
+      line-height: 1;
+      cursor: pointer;
+      white-space: nowrap;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: var(--btn-shadow);
+      transition:
+        transform 160ms ease,
+        border-color 160ms ease,
+        background 160ms ease,
+        color 160ms ease,
+        opacity 160ms ease;
+    }
+
+    .btn:hover:not(:disabled) {
+      transform: translateY(-1px);
+      border-color: color-mix(in srgb, var(--blue) 42%, var(--border));
+      background: color-mix(in srgb, var(--blue) 13%, var(--btn-bg));
+    }
+
+    .btn:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    .btn:focus-visible,
+    .rollback-select:focus-visible,
+    input[type="checkbox"]:focus-visible {
+      outline: 2px solid color-mix(in srgb, var(--blue) 70%, white);
+      outline-offset: 2px;
+    }
+
+    .btn.ghost {
+      --btn-bg: color-mix(in srgb, var(--card-strong) 82%, transparent);
+      --btn-color: var(--text);
+    }
+
+    .btn.danger {
+      --btn-bg: color-mix(in srgb, #c84f3f 82%, var(--card-strong));
+      --btn-border: color-mix(in srgb, #ff907f 42%, var(--border));
+      --btn-color: #fff;
+    }
+
+    .btn.bulk-update-btn {
+      --btn-bg: color-mix(in srgb, #138f61 74%, var(--card-strong));
+      --btn-border: color-mix(in srgb, #4ed79c 38%, var(--border));
+      --btn-color: #fff;
+      padding-inline: 1em;
+    }
+
+    .btn.bulk-update-btn.is-pending,
+    .btn.bulk-update-btn.is-empty {
+      --btn-bg: color-mix(in srgb, #138f61 62%, var(--card-strong));
+      --btn-color: color-mix(in srgb, var(--text) 64%, white);
+    }
+
+    .btn.bulk-update-btn.is-ready,
+    .btn.bulk-update-btn.is-selected {
+      --btn-bg: color-mix(in srgb, #138f61 70%, var(--card-strong));
+      --btn-border: color-mix(in srgb, #fbbf24 54%, var(--border));
+    }
+
+    .bulk-update-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.35em;
+      height: 1.35em;
+      border: 0.12em solid currentColor;
+      border-radius: 999px;
+      color: color-mix(in srgb, var(--text) 54%, white);
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .btn.bulk-update-btn.is-ready .bulk-update-icon,
+    .btn.bulk-update-btn.is-ready .bulk-update-label,
+    .btn.bulk-update-btn.is-selected .bulk-update-icon,
+    .btn.bulk-update-btn.is-selected .bulk-update-label {
+      color: #fbbf24;
+    }
+
+    .btn.tiny {
+      min-height: 32px;
+      border-radius: 10px;
+      padding: 0.38em 0.66em;
+      font-size: 0.9em;
+    }
+
+    .btn.hidden {
+      display: none;
+    }
+
+    .btn:disabled,
+    .rollback-select:disabled {
+      cursor: not-allowed;
+      opacity: 0.48;
+      transform: none;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: visible;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .table-wrap table {
+      min-width: 1120px;
+    }
+
+    .table-wrap th,
+    .table-wrap td {
+      vertical-align: middle;
+    }
+
+    .row-actions {
+      flex-wrap: nowrap;
+    }
+
+    .rollback-select {
+      min-width: 15.5em;
+      min-height: 32px;
+      border: 0.5px solid var(--border);
+      border-radius: 10px;
+      padding: 0.38em 2.25em 0.38em 0.72em;
+      background:
+        linear-gradient(45deg, transparent 50%, var(--muted) 50%) calc(100% - 1.05em) 50% / 0.42em 0.42em no-repeat,
+        linear-gradient(135deg, var(--muted) 50%, transparent 50%) calc(100% - 0.78em) 50% / 0.42em 0.42em no-repeat,
+        color-mix(in srgb, var(--card-strong) 88%, transparent);
+      color: var(--text);
+      font: inherit;
+      font-weight: 650;
+      line-height: 1;
+      appearance: none;
+      -webkit-appearance: none;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: var(--glass-inset);
+    }
+
+    .rollback-select:hover:not(:disabled) {
+      border-color: color-mix(in srgb, var(--blue) 42%, var(--border));
+      background:
+        linear-gradient(45deg, transparent 50%, var(--text) 50%) calc(100% - 1.05em) 50% / 0.42em 0.42em no-repeat,
+        linear-gradient(135deg, var(--text) 50%, transparent 50%) calc(100% - 0.78em) 50% / 0.42em 0.42em no-repeat,
+        color-mix(in srgb, var(--blue) 12%, var(--card-strong));
+    }
+
+    .rollback-select option {
+      background: var(--card-strong);
+      color: var(--text);
+    }
+
+    .mono,
+    .log-box {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    .log-box {
+      min-height: 150px;
+      margin: 0;
+      white-space: pre-wrap;
+      color: var(--text);
+      background: color-mix(in srgb, var(--table-head) 58%, transparent);
+      border: 0.5px solid var(--table-border);
+      border-radius: 14px;
+      padding: 12px;
+      box-shadow: var(--glass-inset);
+    }
+
+    input[type="checkbox"] {
+      width: 1.05em;
+      height: 1.05em;
+      accent-color: var(--blue);
+    }
+
+    @media (max-width: 760px) {
+      .panel {
+        padding: 12px;
+        border-radius: 16px;
+      }
+
+      .btn,
+      .rollback-select {
+        min-height: 40px;
+      }
+
+      .row-actions {
+        flex-wrap: wrap;
+      }
+
+      .rollback-select {
+        min-width: min(100%, 18em);
+      }
+    }
