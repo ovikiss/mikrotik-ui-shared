@@ -7,7 +7,17 @@
     pollInterval: true,
     language: true
   };
-
+  const FONT_ITEMS = [
+    { value: "25", labelKey: "fontLegacy" },
+    { value: "50", labelKey: "fontCurrent" },
+    { value: "100", labelKey: "fontLarge" }
+  ];
+  const POLL_ITEMS = [
+    { value: "1h", amount: 1 },
+    { value: "3h", amount: 3 },
+    { value: "6h", amount: 6 },
+    { value: "12h", amount: 12 }
+  ];
   const HEADER_HTML = `
     <div>
       <h1 class="brand-title">
@@ -30,72 +40,7 @@
       </h1>
       <p class="subtitle" id="subtitle"></p>
     </div>
-    <div class="controls">
-      <label class="control" data-header-control="themeStyle" for="theme-style">
-        <span id="theme-style-label"></span>
-        <div class="theme-dropdown" id="theme-style-dropdown">
-          <button type="button" class="theme-toggle" id="theme-style-toggle" aria-haspopup="listbox" aria-expanded="false">
-            <img src="/images/ui/theme-style.svg" alt="" />
-            <span id="theme-style-current-label"></span>
-          </button>
-          <div class="theme-menu" id="theme-style-menu" role="listbox"></div>
-          <select id="theme-style" class="sr-only" tabindex="-1" aria-hidden="true"></select>
-        </div>
-      </label>
-      <label class="control" data-header-control="theme" for="theme">
-        <span id="theme-label"></span>
-        <div class="theme-dropdown" id="theme-dropdown">
-          <button type="button" class="theme-toggle" id="theme-toggle" aria-haspopup="listbox" aria-expanded="false">
-            <img id="theme-current-icon" src="/images/ui/theme-auto.svg" alt="" />
-            <span id="theme-current-label"></span>
-          </button>
-          <div class="theme-menu" id="theme-menu" role="listbox"></div>
-          <select id="theme" class="sr-only" tabindex="-1" aria-hidden="true"></select>
-        </div>
-      </label>
-      <label class="control" data-header-control="fontSize" for="font-size">
-        <span id="font-label"></span>
-        <div class="theme-dropdown" id="font-dropdown">
-          <button type="button" class="theme-toggle" id="font-toggle" aria-haspopup="listbox" aria-expanded="false">
-            <img src="/images/ui/font-size.svg" alt="" />
-            <span id="font-current-label"></span>
-          </button>
-          <div class="theme-menu" id="font-menu" role="listbox"></div>
-          <select id="font-size" class="sr-only" tabindex="-1" aria-hidden="true">
-            <option value="25" id="font-opt-legacy">25%</option>
-            <option value="50" id="font-opt-current">50%</option>
-            <option value="100" id="font-opt-large">100%</option>
-          </select>
-        </div>
-      </label>
-      <label class="control" data-header-control="pollInterval" for="poll-interval">
-        <span id="poll-label"></span>
-        <div class="theme-dropdown" id="poll-dropdown">
-          <button type="button" class="theme-toggle" id="poll-toggle" aria-haspopup="listbox" aria-expanded="false">
-            <img src="/images/ui/interval.svg" alt="" />
-            <span id="poll-current-label"></span>
-          </button>
-          <div class="theme-menu" id="poll-menu" role="listbox"></div>
-          <select id="poll-interval" class="sr-only" tabindex="-1" aria-hidden="true">
-            <option value="1h" id="poll-interval-1h">1 hour</option>
-            <option value="3h" id="poll-interval-3h">3 hours</option>
-            <option value="6h" id="poll-interval-6h">6 hours</option>
-            <option value="12h" id="poll-interval-12h">12 hours</option>
-          </select>
-        </div>
-      </label>
-      <label class="control" data-header-control="language" for="lang">
-        <span id="lang-label"></span>
-        <div class="lang-dropdown" id="lang-dropdown">
-          <button type="button" class="lang-toggle" id="lang-toggle" aria-haspopup="listbox" aria-expanded="false">
-            <img id="lang-current-icon" src="/images/lang/en.svg" alt="" />
-            <span id="lang-current-label"></span>
-          </button>
-          <div class="lang-menu" id="lang-menu" role="listbox"></div>
-          <select id="lang" class="sr-only" tabindex="-1" aria-hidden="true"></select>
-        </div>
-      </label>
-    </div>`;
+    <div class="controls"></div>`;
 
   function normalizeEnabledMap(cfg) {
     const source = cfg && typeof cfg === "object" ? (cfg.enabled || cfg.visible || cfg) : {};
@@ -131,82 +76,690 @@
     return order;
   }
 
-  function renderHeader(rootEl) {
-    if (!rootEl) return;
-    rootEl.innerHTML = HEADER_HTML;
+  function normalizeThemeOptions(items) {
+    const out = [];
+    const seen = new Set();
+    (Array.isArray(items) ? items : []).forEach((entry) => {
+      const value = String(entry?.value || "").trim().toLowerCase();
+      if (!/^[a-z][a-z0-9_-]{1,15}$/.test(value) || seen.has(value)) {
+        return;
+      }
+      seen.add(value);
+      out.push({
+        value,
+        label: entry?.label && typeof entry.label === "object"
+          ? entry.label
+          : { en: String(entry?.label || value), ro: String(entry?.label || value) },
+        icon: String(entry.icon || `/images/ui/theme-${value}.svg`).trim()
+      });
+    });
+    return out;
   }
 
-  function applyHeaderControlsConfig(rootEl, cfg) {
-    if (!rootEl) return;
+  function normalizeThemeStyleOptions(items) {
+    const out = [];
+    const seen = new Set();
+    (Array.isArray(items) ? items : []).forEach((entry) => {
+      const value = String(entry?.value || "").trim().toLowerCase();
+      if (!/^[a-z][a-z0-9_-]{1,15}$/.test(value) || seen.has(value)) {
+        return;
+      }
+      seen.add(value);
+      out.push({
+        value,
+        label: entry?.label && typeof entry.label === "object"
+          ? entry.label
+          : { en: String(entry?.label || value), ro: String(entry?.label || value) },
+        css: String(entry.css || `styles-${value}.css`).trim()
+      });
+    });
+    return out;
+  }
+
+  function normalizeLanguageOptions(items) {
+    const out = [];
+    const seen = new Set();
+    (Array.isArray(items) ? items : []).forEach((entry) => {
+      const code = String(entry?.code || "").trim().toLowerCase();
+      if (!/^[a-z][a-z0-9_-]{1,15}$/.test(code) || seen.has(code)) {
+        return;
+      }
+      seen.add(code);
+      out.push({
+        code,
+        label: String(entry.label || code.toUpperCase()).trim(),
+        file: String(entry.file || `/i18n/${code}.json`).trim(),
+        icon: String(entry.icon || `/images/lang/${code}.svg`).trim()
+      });
+    });
+    return out;
+  }
+
+  async function fetchJson(url) {
+    try {
+      const res = await fetch(url, { cache: "no-store" });
+      if (!res.ok) return null;
+      return await res.json();
+    } catch (_) {
+      return null;
+    }
+  }
+
+  function cloneState() {
+    return {
+      theme: shared.state.theme,
+      themeStyle: shared.state.themeStyle,
+      fontSize: shared.state.fontSize,
+      language: shared.state.language,
+      themeOptions: shared.state.themeOptions.slice(),
+      themeStyleOptions: shared.state.themeStyleOptions.slice(),
+      languageOptions: shared.state.languageOptions.slice(),
+      controls: {
+        enabled: Object.assign({}, shared.state.controls.enabled),
+        order: shared.state.controls.order.slice()
+      }
+    };
+  }
+
+  function t(key, params = {}) {
+    const value = shared.translations[key] ?? shared.fallbackTranslations[key] ?? key;
+    return String(value || "").replace(/\{([a-zA-Z0-9_]+)\}/g, (_, token) => {
+      if (Object.prototype.hasOwnProperty.call(params, token)) {
+        return String(params[token]);
+      }
+      return `{${token}}`;
+    });
+  }
+
+  function currentThemeOption() {
+    return shared.state.themeOptions.find((entry) => entry.value === shared.state.theme) || shared.state.themeOptions[0] || null;
+  }
+
+  function currentThemeStyleOption() {
+    return shared.state.themeStyleOptions.find((entry) => entry.value === shared.state.themeStyle) || shared.state.themeStyleOptions[0] || null;
+  }
+
+  function currentLanguageOption() {
+    return shared.state.languageOptions.find((entry) => entry.code === shared.state.language) || shared.state.languageOptions[0] || null;
+  }
+
+  function fontLabelKey(value) {
+    if (value === "25") return "fontLegacy";
+    if (value === "100") return "fontLarge";
+    return "fontCurrent";
+  }
+
+  function pollLabel(value) {
+    const normalized = String(value || "").trim().toLowerCase();
+    const match = normalized.match(/^([0-9]+)h$/);
+    const amount = match ? parseInt(match[1], 10) : 1;
+    const unitKey = amount === 1 ? "hoursSingular" : "hoursPlural";
+    return `${amount} ${t(unitKey)}`;
+  }
+
+  function buildHeaderControl(kind) {
+    const defs = {
+      themeStyle: {
+        labelId: "theme-style-label",
+        toggleId: "theme-style-toggle",
+        menuId: "theme-style-menu",
+        selectId: "theme-style",
+        currentLabelId: "theme-style-current-label",
+        currentIconId: null,
+        icon: "/images/ui/theme-style.svg",
+        labelText: t("themeStyleMenuLabel"),
+        ariaLabel: t("themeStyleOptions")
+      },
+      theme: {
+        labelId: "theme-label",
+        toggleId: "theme-toggle",
+        menuId: "theme-menu",
+        selectId: "theme",
+        currentLabelId: "theme-current-label",
+        currentIconId: "theme-current-icon",
+        icon: null,
+        labelText: t("themeMenuLabel"),
+        ariaLabel: t("themeOptions")
+      },
+      fontSize: {
+        labelId: "font-label",
+        toggleId: "font-toggle",
+        menuId: "font-menu",
+        selectId: "font-size",
+        currentLabelId: "font-current-label",
+        currentIconId: null,
+        icon: "/images/ui/font-size.svg",
+        labelText: t("fontSize"),
+        ariaLabel: t("fontSize")
+      },
+      pollInterval: {
+        labelId: "poll-label",
+        toggleId: "poll-toggle",
+        menuId: "poll-menu",
+        selectId: "poll-interval",
+        currentLabelId: "poll-current-label",
+        currentIconId: null,
+        icon: "/images/ui/interval.svg",
+        labelText: t("poll"),
+        ariaLabel: t("pollInterval")
+      },
+      language: {
+        labelId: "lang-label",
+        toggleId: "lang-toggle",
+        menuId: "lang-menu",
+        selectId: "lang",
+        currentLabelId: "lang-current-label",
+        currentIconId: "lang-current-icon",
+        icon: null,
+        labelText: t("language"),
+        ariaLabel: t("languageOptions")
+      }
+    }[kind];
+
+    if (!defs) return null;
+
+    const labelEl = document.getElementById(defs.labelId);
+    const toggleEl = document.getElementById(defs.toggleId);
+    const menuEl = document.getElementById(defs.menuId);
+    const selectEl = document.getElementById(defs.selectId);
+    const currentLabelEl = document.getElementById(defs.currentLabelId);
+    const currentIconEl = defs.currentIconId ? document.getElementById(defs.currentIconId) : null;
+
+    if (!labelEl || !toggleEl || !menuEl || !selectEl || !currentLabelEl) {
+      return null;
+    }
+
+    return { kind, defs, labelEl, toggleEl, menuEl, selectEl, currentLabelEl, currentIconEl };
+  }
+
+  function closeControl(control) {
+    if (!control) return;
+    closeDropdownMenu(control.menuEl, control.toggleEl);
+  }
+
+  function closeAllControls(exceptKind) {
+    ["themeStyle", "theme", "fontSize", "pollInterval", "language"].forEach((kind) => {
+      if (kind !== exceptKind) closeControl(shared.controls[kind]);
+    });
+  }
+
+  function updateControlText(control) {
+    if (!control) return;
+    const { kind, selectEl, currentLabelEl, currentIconEl } = control;
+
+    if (kind === "theme") {
+      const picked = currentThemeOption();
+      if (currentIconEl) currentIconEl.setAttribute("src", picked?.icon || "/images/ui/theme-auto.svg");
+      currentLabelEl.textContent = picked ? (picked.label?.[shared.state.language] || picked.label?.en || picked.label?.ro || picked.value || "") : "";
+      selectEl.value = shared.state.theme;
+      return;
+    }
+
+    if (kind === "themeStyle") {
+      const picked = currentThemeStyleOption();
+      currentLabelEl.textContent = picked ? (picked.label?.[shared.state.language] || picked.label?.en || picked.label?.ro || picked.value || "") : "";
+      selectEl.value = shared.state.themeStyle;
+      return;
+    }
+
+    if (kind === "fontSize") {
+      currentLabelEl.textContent = t(fontLabelKey(shared.state.fontSize));
+      selectEl.value = shared.state.fontSize;
+      return;
+    }
+
+    if (kind === "pollInterval") {
+      currentLabelEl.textContent = pollLabel(shared.state.pollInterval);
+      selectEl.value = shared.state.pollInterval;
+      return;
+    }
+
+    if (kind === "language") {
+      const picked = currentLanguageOption();
+      if (currentIconEl) currentIconEl.setAttribute("src", picked?.icon || "/images/lang/en.svg");
+      currentLabelEl.textContent = picked ? picked.label : "EN";
+      selectEl.value = shared.state.language;
+    }
+  }
+
+  function renderControlMenu(control) {
+    if (!control) return;
+    const { kind, menuEl, selectEl } = control;
+    menuEl.innerHTML = "";
+    selectEl.innerHTML = "";
+
+    if (kind === "themeStyle") {
+      shared.state.themeStyleOptions.forEach((item) => {
+        const label = item.label?.[shared.state.language] || item.label?.en || item.label?.ro || item.value;
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "theme-item";
+        button.setAttribute("role", "option");
+        button.innerHTML = `<img src="/images/ui/theme-style.svg" alt="" /><span>${label}</span>`;
+        button.addEventListener("click", async () => {
+          closeControl(control);
+          await setSetting("themeStyle", item.value);
+        });
+        menuEl.appendChild(button);
+
+        const option = document.createElement("option");
+        option.value = item.value;
+        option.textContent = label;
+        selectEl.appendChild(option);
+      });
+      updateControlText(control);
+      return;
+    }
+
+    if (kind === "theme") {
+      shared.state.themeOptions.forEach((item) => {
+        const label = item.label?.[shared.state.language] || item.label?.en || item.label?.ro || item.value;
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "theme-item";
+        button.setAttribute("role", "option");
+        button.innerHTML = `<img src="${item.icon || "/images/ui/theme-auto.svg"}" alt="" /><span>${label}</span>`;
+        button.addEventListener("click", async () => {
+          closeControl(control);
+          await setSetting("theme", item.value);
+        });
+        menuEl.appendChild(button);
+
+        const option = document.createElement("option");
+        option.value = item.value;
+        option.textContent = label;
+        selectEl.appendChild(option);
+      });
+      updateControlText(control);
+      return;
+    }
+
+    if (kind === "fontSize") {
+      FONT_ITEMS.forEach((item) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "theme-item";
+        button.setAttribute("role", "option");
+        button.setAttribute("data-font-size", item.value);
+        button.innerHTML = `<img src="/images/ui/font-size.svg" alt="" /><span>${t(item.labelKey)}</span>`;
+        button.addEventListener("click", async () => {
+          closeControl(control);
+          await setSetting("fontSize", item.value);
+        });
+        menuEl.appendChild(button);
+
+        const option = document.createElement("option");
+        option.value = item.value;
+        option.textContent = t(item.labelKey);
+        selectEl.appendChild(option);
+      });
+      updateControlText(control);
+      return;
+    }
+
+    if (kind === "pollInterval") {
+      POLL_ITEMS.forEach((item) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "theme-item";
+        button.setAttribute("role", "option");
+        button.setAttribute("data-poll-interval", item.value);
+        button.innerHTML = `<img src="/images/ui/interval.svg" alt="" /><span>${pollLabel(item.value)}</span>`;
+        button.addEventListener("click", async () => {
+          closeControl(control);
+          await setSetting("pollInterval", item.value);
+        });
+        menuEl.appendChild(button);
+
+        const option = document.createElement("option");
+        option.value = item.value;
+        option.textContent = pollLabel(item.value);
+        selectEl.appendChild(option);
+      });
+      updateControlText(control);
+      return;
+    }
+
+    if (kind === "language") {
+      shared.state.languageOptions.forEach((item) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "theme-item";
+        button.setAttribute("role", "option");
+        button.innerHTML = `<img src="${item.icon || "/images/lang/en.svg"}" alt="" /><span>${item.label}</span>`;
+        button.addEventListener("click", async () => {
+          closeControl(control);
+          await setSetting("language", item.code);
+        });
+        menuEl.appendChild(button);
+
+        const option = document.createElement("option");
+        option.value = item.code;
+        option.textContent = item.label;
+        selectEl.appendChild(option);
+      });
+      updateControlText(control);
+    }
+  }
+
+  function syncControlVisibility(rootEl) {
     const controlsRoot = rootEl.querySelector(".controls");
     if (!controlsRoot) return;
-
-    const enabled = normalizeEnabledMap(cfg || {});
-    const controls = new Map();
+    const enabled = shared.state.controls.enabled;
+    const order = shared.state.controls.order;
+    const nodes = new Map();
     controlsRoot.querySelectorAll("[data-header-control]").forEach((el) => {
-      controls.set(el.getAttribute("data-header-control"), el);
+      nodes.set(el.getAttribute("data-header-control"), el);
     });
 
-    controls.forEach((el, key) => {
+    nodes.forEach((el, key) => {
       el.style.display = enabled[key] === false ? "none" : "";
     });
 
-    const order = normalizeOrder(cfg || {});
     order.forEach((key) => {
-      const el = controls.get(key);
-      if (el) {
-        controlsRoot.appendChild(el);
+      const el = nodes.get(key);
+      if (el) controlsRoot.appendChild(el);
+    });
+  }
+
+  function applyHeaderLabels() {
+    Object.keys(shared.controls).forEach((key) => {
+      const control = shared.controls[key];
+      if (!control) return;
+      control.labelEl.textContent = control.defs.labelText;
+      control.menuEl.setAttribute("aria-label", control.defs.ariaLabel);
+      updateControlText(control);
+    });
+  }
+
+  function applyThemeToDom() {
+    const theme = shared.state.theme === "auto"
+      ? (root.matchMedia && root.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+      : shared.state.theme;
+    document.documentElement.setAttribute("data-theme", theme);
+  }
+
+  function applyThemeStyleToDom() {
+    const picked = currentThemeStyleOption();
+    const link = document.getElementById("theme-style-css");
+    const css = String(picked?.css || `styles-${shared.state.themeStyle}.css`).replace(/^\/+/, "");
+    if (link) {
+      try {
+        const current = new URL(link.getAttribute("href") || css, document.baseURI);
+        current.pathname = css.startsWith("/") ? css : `/${css}`;
+        link.setAttribute("href", `${current.pathname}${current.search || ""}`);
+      } catch (_) {
+        link.setAttribute("href", `/${css}`);
       }
+    }
+    document.documentElement.setAttribute("data-theme-style", shared.state.themeStyle);
+  }
+
+  function applyFontSizeToDom() {
+    const mode = ["25", "50", "100"].includes(shared.state.fontSize) ? shared.state.fontSize : "100";
+    shared.state.fontSize = mode;
+    document.documentElement.setAttribute("data-font-size", mode);
+  }
+
+  function applyLanguageToDom() {
+    document.documentElement.lang = shared.state.language || "en";
+  }
+
+  async function saveSettings(patch) {
+    try {
+      const res = await fetch("/api/settings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(patch || {})
+      });
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`);
+      }
+      return await res.json().catch(() => ({}));
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  function emitSettingChanged(key, value, previous) {
+    const detail = {
+      key,
+      value,
+      previous,
+      state: cloneState()
+    };
+    root.dispatchEvent(new CustomEvent("mikrotik:header-setting-changed", { detail }));
+  }
+
+  async function setSetting(key, value) {
+    const previous = shared.state[key];
+    let next = value;
+
+    if (key === "theme") {
+      next = shared.state.themeOptions.some((entry) => entry.value === value) ? value : "auto";
+      shared.state.theme = next;
+      applyThemeToDom();
+      updateControlText(shared.controls.theme);
+    } else if (key === "themeStyle") {
+      next = shared.state.themeStyleOptions.some((entry) => entry.value === value) ? value : "modern";
+      shared.state.themeStyle = next;
+      applyThemeStyleToDom();
+      updateControlText(shared.controls.themeStyle);
+    } else if (key === "fontSize") {
+      next = ["25", "50", "100"].includes(value) ? value : "100";
+      shared.state.fontSize = next;
+      applyFontSizeToDom();
+      updateControlText(shared.controls.fontSize);
+    } else if (key === "pollInterval") {
+      next = POLL_ITEMS.some((entry) => entry.value === value) ? value : "1h";
+      shared.state.pollInterval = next;
+      updateControlText(shared.controls.pollInterval);
+    } else if (key === "language") {
+      next = shared.state.languageOptions.some((entry) => entry.code === value) ? value : "en";
+      shared.state.language = next;
+      await loadTranslations(next);
+      applyLanguageToDom();
+      applyHeaderLabels();
+      updateControlText(shared.controls.language);
+      // Re-render option labels so the dropdowns stay aligned with the active language.
+      renderAllMenus();
+    } else {
+      return;
+    }
+
+    await saveSettings({ [key === "themeStyle" ? "theme_style" : key === "fontSize" ? "font_size" : key === "pollInterval" ? "poll_interval" : key]: next });
+    emitSettingChanged(key, next, previous);
+  }
+
+  function renderAllMenus() {
+    Object.keys(shared.controls).forEach((key) => {
+      renderControlMenu(shared.controls[key]);
+    });
+  }
+
+  function bindListeners() {
+    Object.keys(shared.controls).forEach((key) => {
+      const control = shared.controls[key];
+      if (!control) return;
+      control.toggleEl.addEventListener("click", () => {
+        closeAllControls(key);
+        toggleDropdownMenu(control.menuEl, control.toggleEl, []);
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      Object.keys(shared.controls).forEach((key) => {
+        const control = shared.controls[key];
+        if (!control) return;
+        const wrap = control.toggleEl.closest(".control") || control.toggleEl.parentElement;
+        if (wrap && !wrap.contains(event.target)) {
+          closeControl(control);
+        }
+      });
+    });
+
+    Object.keys(shared.controls).forEach((key) => {
+      const control = shared.controls[key];
+      if (!control) return;
+      control.selectEl.addEventListener("change", async () => {
+        await setSetting(key, control.selectEl.value);
+      });
     });
   }
 
   async function loadHeaderControlsConfig() {
-    const q = `?_=${Date.now()}`;
-    const merged = {};
-    const sources = [
-      { url: "/common/header-controls.json" + q, data: null },
-      { url: "header-controls.json" + q, data: null }
-    ];
+    const [localCfg, sharedCfg] = await Promise.all([
+      fetchJson("header-controls.json?_=" + Date.now()),
+      fetchJson("/common/header-controls.json?_=" + Date.now())
+    ]);
+    return Object.assign({}, sharedCfg || {}, localCfg || {});
+  }
 
-    for (const source of sources) {
-      try {
-        const res = await fetch(source.url, { cache: "no-store" });
-        if (!res.ok) continue;
-        source.data = await res.json();
-      } catch (_) {}
-    }
+  async function loadRegistries() {
+    const [themeOptions, themeStyleOptions, languageOptions] = await Promise.all([
+      fetchJson("/common/theme-options.json?_=" + Date.now()),
+      fetchJson("/common/theme-styles.json?_=" + Date.now()),
+      fetchJson("/i18n/languages.json?_=" + Date.now())
+    ]);
 
-    return Object.assign(merged, sources[0].data || {}, sources[1].data || {});
+    shared.state.themeOptions = normalizeThemeOptions(themeOptions || []);
+    shared.state.themeStyleOptions = normalizeThemeStyleOptions(themeStyleOptions || []);
+    shared.state.languageOptions = normalizeLanguageOptions(languageOptions || []);
+  }
+
+  async function loadTranslations(language) {
+    const requested = String(language || "en").trim().toLowerCase();
+    const fallback = await fetchJson("/i18n/en.json?_=" + Date.now());
+    const selected = requested === "en" ? {} : await fetchJson(`/i18n/${requested}.json?_=${Date.now()}`);
+    shared.fallbackTranslations = fallback || {};
+    shared.translations = selected || shared.fallbackTranslations;
+  }
+
+  async function loadSettings() {
+    const result = await fetchJson("/api/settings.json?_=" + Date.now());
+    const settings = result?.settings || result || {};
+
+    const theme = String(settings.theme || "").trim().toLowerCase();
+    shared.state.theme = shared.state.themeOptions.some((entry) => entry.value === theme) ? theme : (shared.state.themeOptions[0]?.value || "auto");
+
+    const themeStyle = String(settings.theme_style || settings.themeStyle || "").trim().toLowerCase();
+    shared.state.themeStyle = shared.state.themeStyleOptions.some((entry) => entry.value === themeStyle) ? themeStyle : (shared.state.themeStyleOptions[0]?.value || "modern");
+
+    const fontSize = String(settings.font_size || settings.fontSize || "100").trim();
+    shared.state.fontSize = ["25", "50", "100"].includes(fontSize) ? fontSize : "100";
+
+    const language = String(settings.language || "en").trim().toLowerCase();
+    shared.state.language = shared.state.languageOptions.some((entry) => entry.code === language) ? language : (shared.state.languageOptions[0]?.code || "en");
+
+    const pollInterval = String(settings.poll_interval || settings.effective_poll_interval || "1h").trim().toLowerCase();
+    shared.state.pollInterval = POLL_ITEMS.some((entry) => entry.value === pollInterval) ? pollInterval : "1h";
+  }
+
+  function applyStateToDom() {
+    applyThemeToDom();
+    applyThemeStyleToDom();
+    applyFontSizeToDom();
+    applyLanguageToDom();
+    applyHeaderLabels();
   }
 
   async function initSharedHeader(rootEl) {
     if (!rootEl || rootEl.dataset.sharedHeaderRendered === "1") return;
-    renderHeader(rootEl);
+
+    rootEl.innerHTML = HEADER_HTML;
     rootEl.dataset.sharedHeaderRendered = "1";
+
     try {
       const cfg = await loadHeaderControlsConfig();
-      applyHeaderControlsConfig(rootEl, cfg);
-    } catch (_) {}
+      shared.state.controls.enabled = normalizeEnabledMap(cfg);
+      shared.state.controls.order = normalizeOrder(cfg);
+    } catch (_) {
+      shared.state.controls.enabled = normalizeEnabledMap({});
+      shared.state.controls.order = normalizeOrder({});
+    }
+
+    shared.controls = {
+      themeStyle: buildHeaderControl("themeStyle"),
+      theme: buildHeaderControl("theme"),
+      fontSize: buildHeaderControl("fontSize"),
+      pollInterval: buildHeaderControl("pollInterval"),
+      language: buildHeaderControl("language")
+    };
+
+    syncControlVisibility(rootEl);
+    await loadRegistries();
+    await loadSettings().catch(() => {});
+    await loadTranslations(shared.state.language).catch(() => {
+      shared.translations = shared.fallbackTranslations || {};
+    });
+    applyStateToDom();
+    renderAllMenus();
+    bindListeners();
+    shared.readyResolved = true;
+    if (typeof shared.readyResolve === "function") {
+      shared.readyResolve(shared);
+      shared.readyResolve = null;
+    }
+    root.dispatchEvent(new CustomEvent("mikrotik:header-ready", { detail: cloneState() }));
   }
 
   function initAllSharedHeaders() {
     document.querySelectorAll("[data-mikrotik-header-root]").forEach((rootEl) => {
       initSharedHeader(rootEl);
     });
+    if (!document.querySelector("[data-mikrotik-header-root]") && !shared.readyResolved && typeof shared.readyResolve === "function") {
+      shared.readyResolved = true;
+      shared.readyResolve(shared);
+      shared.readyResolve = null;
+    }
   }
 
-  root.MikroTikSharedHeader = {
-    renderHeader,
-    applyHeaderControlsConfig,
-    initSharedHeader,
-    initAllSharedHeaders,
-    loadHeaderControlsConfig
+  const shared = root.MikroTikSharedHeader || {};
+  shared.ownsControls = true;
+  shared.state = shared.state || {
+    theme: "auto",
+    themeStyle: "modern",
+    fontSize: "100",
+    language: "en",
+    pollInterval: "1h",
+    themeOptions: [],
+    themeStyleOptions: [],
+    languageOptions: [],
+    controls: {
+      enabled: normalizeEnabledMap({}),
+      order: normalizeOrder({})
+    }
   };
+  shared.translations = shared.translations || {};
+  shared.fallbackTranslations = shared.fallbackTranslations || {};
+  shared.controls = shared.controls || {
+    themeStyle: null,
+    theme: null,
+    fontSize: null,
+    pollInterval: null,
+    language: null
+  };
+  shared.readyResolved = false;
+  shared.ready = new Promise((resolve) => {
+    shared.readyResolve = resolve;
+  });
+  shared.whenReady = () => shared.ready;
+  shared.getState = () => cloneState();
+  shared.setSetting = setSetting;
+  shared.renderAllMenus = renderAllMenus;
+  shared.loadHeaderControlsConfig = loadHeaderControlsConfig;
+  shared.loadRegistries = loadRegistries;
+  shared.loadTranslations = loadTranslations;
+  shared.loadSettings = loadSettings;
+  shared.t = t;
+
+  root.MikroTikSharedHeader = shared;
 
   if (typeof document !== "undefined") {
-    initAllSharedHeaders();
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", initAllSharedHeaders, { once: true });
+    } else {
+      initAllSharedHeaders();
     }
   }
 })(typeof window !== "undefined" ? window : globalThis);

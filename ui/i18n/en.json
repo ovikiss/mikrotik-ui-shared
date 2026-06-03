@@ -108,5 +108,6 @@
   "languageSaveFailed": "Language save failed: {message}",
   "uiRegistryLoadFailedUsingBuiltInFallbacks": "UI registry load failed, using built-in fallbacks: {message}",
   "translationLoadFailedFallingBackToEnglish": "Translation load failed, falling back to English: {message}",
-  "englishFallbackLoadFailed": "English fallback load failed: {message}"
+  "englishFallbackLoadFailed": "English fallback load failed: {message}",
+  "fontSaveFailed": "Font size save failed: {message}"
 }

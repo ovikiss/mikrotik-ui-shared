@@ -108,5 +108,6 @@
   "languageSaveFailed": "Salvarea limbii a eșuat: {message}",
   "uiRegistryLoadFailedUsingBuiltInFallbacks": "Încărcarea registrilor UI a eșuat, se folosesc fallback-urile integrate: {message}",
   "translationLoadFailedFallingBackToEnglish": "Încărcarea traducerilor a eșuat, se revine la engleză: {message}",
-  "englishFallbackLoadFailed": "Încărcarea fallback-ului în engleză a eșuat: {message}"
+  "englishFallbackLoadFailed": "Încărcarea fallback-ului în engleză a eșuat: {message}",
+  "fontSaveFailed": "Salvarea mărimii fontului a eșuat: {message}"
 }
