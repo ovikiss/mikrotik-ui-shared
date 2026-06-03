@@ -700,6 +700,7 @@
 
     rootEl.innerHTML = HEADER_HTML;
     rootEl.dataset.sharedHeaderRendered = "1";
+    const controlsRoot = rootEl.querySelector(".controls");
 
     try {
       const cfg = await loadHeaderControlsConfig();
