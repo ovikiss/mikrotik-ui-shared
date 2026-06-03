@@ -807,7 +807,7 @@
     }
 
     /* Shared app controls used by MikroTik container/admin UIs. */
-    .app {
+    .app:not(.dashboard-container) {
       width: 100%;
       max-width: none;
       margin: 0 auto;
@@ -1169,30 +1169,7 @@
       height: 2.4em;
     }
 
-    /* Glass dashboard frame for app-style projects such as MCUG. */
-    .app {
-      width: calc(100% - 48px);
-      max-width: 1400px;
-      margin: 24px 24px 48px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 32px;
-      backdrop-filter: var(--glass-blur);
-      -webkit-backdrop-filter: var(--glass-blur);
-      box-shadow: var(--glass-shadow), var(--glass-inset);
-      box-sizing: border-box;
-    }
-
-    .app > .topbar {
-      padding-bottom: 28px;
-      margin-bottom: 28px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    html[data-theme="light"] .app > .topbar {
-      border-bottom-color: rgba(15, 23, 42, 0.06);
-    }
+    /* App project content inside the shared dashboard frame. */
 
     .app .panel {
       margin-top: 24px;
@@ -1260,18 +1237,4 @@
       color: var(--text);
       font-size: 1.25em;
       letter-spacing: -0.01em;
-    }
-
-    @media (max-width: 760px) {
-      .app {
-        width: calc(100% - 24px);
-        margin: 12px;
-        padding: 18px;
-        border-radius: 20px;
-      }
-
-      .app > .topbar {
-        padding-bottom: 18px;
-        margin-bottom: 18px;
-      }
     }
