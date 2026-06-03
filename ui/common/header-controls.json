@@ -1,6 +1,6 @@
 {
   "order": ["themeStyle", "theme", "fontSize", "pollInterval", "language"],
-  "visible": {
+  "enabled": {
     "themeStyle": true,
     "theme": true,
     "fontSize": true,
