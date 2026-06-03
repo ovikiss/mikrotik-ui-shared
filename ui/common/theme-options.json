@@ -1,0 +1,26 @@
+[
+  {
+    "value": "auto",
+    "label": {
+      "en": "Auto",
+      "ro": "Auto"
+    },
+    "icon": "/images/ui/theme-auto.svg"
+  },
+  {
+    "value": "light",
+    "label": {
+      "en": "Light",
+      "ro": "Luminos"
+    },
+    "icon": "/images/ui/theme-light.svg"
+  },
+  {
+    "value": "dark",
+    "label": {
+      "en": "Dark",
+      "ro": "Intunecat"
+    },
+    "icon": "/images/ui/theme-dark.svg"
+  }
+]
