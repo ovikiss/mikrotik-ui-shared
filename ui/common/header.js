@@ -197,7 +197,7 @@
     return `${amount} ${t(unitKey)}`;
   }
 
-  function buildHeaderControl(kind) {
+  function buildHeaderControl(kind, controlsRoot) {
     const defs = {
       themeStyle: {
         labelId: "theme-style-label",
@@ -258,12 +258,44 @@
 
     if (!defs) return null;
 
-    const labelEl = document.getElementById(defs.labelId);
-    const toggleEl = document.getElementById(defs.toggleId);
-    const menuEl = document.getElementById(defs.menuId);
-    const selectEl = document.getElementById(defs.selectId);
-    const currentLabelEl = document.getElementById(defs.currentLabelId);
-    const currentIconEl = defs.currentIconId ? document.getElementById(defs.currentIconId) : null;
+    let labelEl = document.getElementById(defs.labelId);
+    let toggleEl = document.getElementById(defs.toggleId);
+    let menuEl = document.getElementById(defs.menuId);
+    let selectEl = document.getElementById(defs.selectId);
+    let currentLabelEl = document.getElementById(defs.currentLabelId);
+    let currentIconEl = defs.currentIconId ? document.getElementById(defs.currentIconId) : null;
+
+    if (!labelEl && controlsRoot) {
+      const wrapper = document.createElement("label");
+      wrapper.className = "control";
+      wrapper.setAttribute("data-header-control", kind);
+      wrapper.setAttribute("for", defs.selectId);
+
+      const dropdownClass = kind === "language" ? "lang-dropdown" : "theme-dropdown";
+      const toggleClass = kind === "language" ? "lang-toggle" : "theme-toggle";
+      const iconHtml = defs.currentIconId
+        ? `<img id="${defs.currentIconId}" src="${defs.icon || "/images/ui/theme-auto.svg"}" alt="" />`
+        : `<img src="${defs.icon || "/images/ui/theme-auto.svg"}" alt="" />`;
+
+      wrapper.innerHTML = `
+        <span id="${defs.labelId}"></span>
+        <div class="${dropdownClass}" id="${kind}-dropdown">
+          <button type="button" class="${toggleClass}" id="${defs.toggleId}" aria-haspopup="listbox" aria-expanded="false">
+            ${iconHtml}
+            <span id="${defs.currentLabelId}"></span>
+          </button>
+          <div class="${kind === "language" ? "lang-menu" : "theme-menu"}" id="${defs.menuId}" role="listbox"></div>
+          <select id="${defs.selectId}" class="sr-only" tabindex="-1" aria-hidden="true"></select>
+        </div>`;
+      controlsRoot.appendChild(wrapper);
+
+      labelEl = document.getElementById(defs.labelId);
+      toggleEl = document.getElementById(defs.toggleId);
+      menuEl = document.getElementById(defs.menuId);
+      selectEl = document.getElementById(defs.selectId);
+      currentLabelEl = document.getElementById(defs.currentLabelId);
+      currentIconEl = defs.currentIconId ? document.getElementById(defs.currentIconId) : null;
+    }
 
     if (!labelEl || !toggleEl || !menuEl || !selectEl || !currentLabelEl) {
       return null;
@@ -679,11 +711,11 @@
     }
 
     shared.controls = {
-      themeStyle: buildHeaderControl("themeStyle"),
-      theme: buildHeaderControl("theme"),
-      fontSize: buildHeaderControl("fontSize"),
-      pollInterval: buildHeaderControl("pollInterval"),
-      language: buildHeaderControl("language")
+      themeStyle: buildHeaderControl("themeStyle", controlsRoot),
+      theme: buildHeaderControl("theme", controlsRoot),
+      fontSize: buildHeaderControl("fontSize", controlsRoot),
+      pollInterval: buildHeaderControl("pollInterval", controlsRoot),
+      language: buildHeaderControl("language", controlsRoot)
     };
 
     syncControlVisibility(rootEl);
