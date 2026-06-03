@@ -54,7 +54,7 @@
     h1 { margin: 0 0 6px; font-size: 1.7em; line-height: 1; }
     .brand-title {
       display: inline-flex;
-      align-items: center;
+      align-items: flex-end;
       gap: .52em;
       flex-wrap: nowrap;
       white-space: nowrap;
