@@ -207,8 +207,8 @@
         currentLabelId: "theme-style-current-label",
         currentIconId: null,
         icon: "/images/ui/theme-style.svg",
-        labelText: t("themeStyleMenuLabel"),
-        ariaLabel: t("themeStyleOptions")
+        labelKey: "themeStyleMenuLabel",
+        ariaLabelKey: "themeStyleOptions"
       },
       theme: {
         labelId: "theme-label",
@@ -218,8 +218,8 @@
         currentLabelId: "theme-current-label",
         currentIconId: "theme-current-icon",
         icon: null,
-        labelText: t("themeMenuLabel"),
-        ariaLabel: t("themeOptions")
+        labelKey: "themeMenuLabel",
+        ariaLabelKey: "themeOptions"
       },
       fontSize: {
         labelId: "font-label",
@@ -229,8 +229,8 @@
         currentLabelId: "font-current-label",
         currentIconId: null,
         icon: "/images/ui/font-size.svg",
-        labelText: t("fontSize"),
-        ariaLabel: t("fontSize")
+        labelKey: "fontSize",
+        ariaLabelKey: "fontSize"
       },
       pollInterval: {
         labelId: "poll-label",
@@ -240,8 +240,8 @@
         currentLabelId: "poll-current-label",
         currentIconId: null,
         icon: "/images/ui/interval.svg",
-        labelText: t("poll"),
-        ariaLabel: t("pollInterval")
+        labelKey: "poll",
+        ariaLabelKey: "pollInterval"
       },
       language: {
         labelId: "lang-label",
@@ -251,8 +251,8 @@
         currentLabelId: "lang-current-label",
         currentIconId: "lang-current-icon",
         icon: null,
-        labelText: t("language"),
-        ariaLabel: t("languageOptions")
+        labelKey: "language",
+        ariaLabelKey: "languageOptions"
       }
     }[kind];
 
@@ -498,8 +498,8 @@
     Object.keys(shared.controls).forEach((key) => {
       const control = shared.controls[key];
       if (!control) return;
-      control.labelEl.textContent = control.defs.labelText;
-      control.menuEl.setAttribute("aria-label", control.defs.ariaLabel);
+      control.labelEl.textContent = t(control.defs.labelKey);
+      control.menuEl.setAttribute("aria-label", t(control.defs.ariaLabelKey));
       updateControlText(control);
     });
   }
