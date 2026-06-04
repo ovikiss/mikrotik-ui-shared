@@ -72,7 +72,7 @@
       text-transform: uppercase;
       letter-spacing: 0.09em;
       font-size: 0.83em;
-      transform: translateY(-0.07em);
+      transform: translateY(-0.35em);
     }
     .brand-version {
       display: inline-block;

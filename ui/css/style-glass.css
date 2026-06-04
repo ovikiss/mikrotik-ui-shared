@@ -136,6 +136,7 @@
       letter-spacing: 0.1em;
       font-size: 0.83em;
       opacity: 0.9;
+      transform: translateY(-0.35em);
     }
     .brand-version {
       display: inline-block;
