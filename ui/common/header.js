@@ -668,6 +668,35 @@
     shared.translations = selected || shared.fallbackTranslations;
   }
 
+  function availableLanguageCode(code) {
+    return shared.state.languageOptions.some((entry) => entry.code === code);
+  }
+
+  function detectBrowserLanguage() {
+    const raw = [
+      root.navigator?.language,
+      ...(Array.isArray(root.navigator?.languages) ? root.navigator.languages : [])
+    ].map((value) => String(value || "").trim().toLowerCase()).filter(Boolean);
+
+    for (const candidate of raw) {
+      const base = candidate.split("-")[0];
+      if (base === "ro" && availableLanguageCode("ro")) {
+        return "ro";
+      }
+      if (base === "en" && availableLanguageCode("en")) {
+        return "en";
+      }
+    }
+
+    if (availableLanguageCode("en")) {
+      return "en";
+    }
+    if (availableLanguageCode("ro")) {
+      return "ro";
+    }
+    return shared.state.languageOptions[0]?.code || "en";
+  }
+
   async function loadSettings() {
     const result = await fetchJson("/api/settings.json?_=" + Date.now());
     const settings = result?.settings || result || {};
@@ -681,8 +710,13 @@
     const fontSize = String(settings.font_size || settings.fontSize || "100").trim();
     shared.state.fontSize = ["25", "50", "100"].includes(fontSize) ? fontSize : "100";
 
-    const language = String(settings.language || "en").trim().toLowerCase();
-    shared.state.language = shared.state.languageOptions.some((entry) => entry.code === language) ? language : (shared.state.languageOptions[0]?.code || "en");
+    const requestedLanguage = String(settings.language || "").trim().toLowerCase();
+    const browserLanguage = detectBrowserLanguage();
+    if (availableLanguageCode(requestedLanguage)) {
+      shared.state.language = requestedLanguage;
+    } else {
+      shared.state.language = browserLanguage;
+    }
 
     const pollInterval = String(settings.poll_interval || settings.effective_poll_interval || "1h").trim().toLowerCase();
     shared.state.pollInterval = POLL_ITEMS.some((entry) => entry.value === pollInterval) ? pollInterval : "1h";
