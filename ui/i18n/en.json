@@ -155,5 +155,8 @@
   "error": "Error: ",
   "connectionError": "Connection error",
   "min": "min",
-  "sec": "sec"
+  "sec": "sec",
+  "refreshVms": "Refresh VMs",
+  "noVms": "No VMs found on Proxmox.",
+  "loadVmsError": "Could not load VMs from Proxmox."
 }

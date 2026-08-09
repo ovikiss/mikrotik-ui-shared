@@ -155,5 +155,8 @@
   "error": "Eroare: ",
   "connectionError": "Eroare de conexiune",
   "min": "min",
-  "sec": "sec"
+  "sec": "sec",
+  "refreshVms": "Reîmprospătează VM-urile",
+  "noVms": "Nu au fost găsite VM-uri pe Proxmox.",
+  "loadVmsError": "VM-urile nu au putut fi încărcate din Proxmox."
 }
