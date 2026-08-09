@@ -123,7 +123,7 @@
   "sshAuthMethod": "SSH authentication",
   "sshAuthKey": "Private key",
   "sshAuthPassword": "Password",
-  "sshKey": "SSH key path",
+  "sshKey": "SSH private key",
   "sshPassword": "SSH password",
   "upsHost": "UPS/NUT host",
   "upsPort": "UPS/NUT port",
