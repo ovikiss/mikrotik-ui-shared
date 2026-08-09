@@ -113,6 +113,14 @@
       overflow: visible;
       transform: translateY(0);
     }
+    .brand-custom-mark {
+      display: block;
+      flex: 0 0 auto;
+      width: 1.6em;
+      height: 1.6em;
+      color: var(--text);
+      overflow: visible;
+    }
     .subtitle { color: var(--muted); margin-bottom: 12px; font-size: 0.95em; }
     .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-bottom: 14px; }
     .kpi {

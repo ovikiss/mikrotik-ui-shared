@@ -505,6 +505,24 @@
     });
   }
 
+  function applyBrand(rootEl) {
+    if (!rootEl) return;
+    const brand = String(rootEl.dataset.brand || "mikrotik").trim().toLowerCase();
+    const brandText = rootEl.dataset.brandText || "";
+    const brandVersion = rootEl.dataset.brandVersion || "";
+    const subtitle = rootEl.dataset.subtitle || "";
+    const mark = rootEl.querySelector(".brand-mikrotik-mark");
+    if (brand !== "mikrotik" && mark) {
+      mark.outerHTML = `<svg class="brand-custom-mark brand-${brand}-mark" viewBox="0 0 48 48" role="img" aria-label="${brand}"><path fill="none" stroke="currentColor" stroke-width="3" d="M14 7h20a3 3 0 0 1 3 3v28a3 3 0 0 1-3 3H14a3 3 0 0 1-3-3V10a3 3 0 0 1 3-3Zm-1-4h8m6 0h8"/><path fill="currentColor" d="M27 12 17 27h7l-2 10 10-15h-7z"/></svg>`;
+    }
+    const textEl = rootEl.querySelector("#brand-text");
+    const versionEl = rootEl.querySelector("#brand-version");
+    const subtitleEl = rootEl.querySelector("#subtitle");
+    if (textEl) textEl.textContent = brandText;
+    if (versionEl) versionEl.textContent = brandVersion;
+    if (subtitleEl) subtitleEl.textContent = subtitle;
+  }
+
   function applyThemeToDom() {
     const theme = shared.state.theme === "auto"
       ? (root.matchMedia && root.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
@@ -735,6 +753,7 @@
 
     rootEl.innerHTML = HEADER_HTML;
     rootEl.dataset.sharedHeaderRendered = "1";
+    applyBrand(rootEl);
     const controlsRoot = rootEl.querySelector(".controls");
 
     try {
