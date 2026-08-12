@@ -514,7 +514,7 @@
     const mark = rootEl.querySelector(".brand-mikrotik-mark");
     if (brand !== "mikrotik" && mark) {
       const markSvg = brand === "fancontrol"
-        ? `<svg class="brand-custom-mark brand-${brand}-mark" viewBox="0 0 48 48" role="img" aria-label="Fancontrol"><circle cx="24" cy="24" r="5" fill="currentColor"/><path fill="currentColor" d="M24 6c5 0 8 4 6 8-1 3-4 5-6 6-2-3-3-7-2-10 0-2 1-3 2-4Zm15 9c2 4 0 8-4 9-3 1-6 0-8-2 2-3 5-5 8-6 2-1 3-0 4-1ZM33 38c-4 2-8 0-9-4-1-3 0-6 2-8 3 2 5 5 6 8 1 2 1 3 1 4ZM9 33c-2-4 0-8 4-9 3-1 6 0 8 2-2 3-5 5-8 6-2 1-3 1-4 1Zm0-18c4-2 8 0 9 4 1 3 0 6-2 8-3-2-5-5-6-8-1-2-1-3-1-4Z"/></svg>`
+        ? `<svg class="brand-custom-mark brand-${brand}-mark" viewBox="0 0 48 48" role="img" aria-label="Fancontrol"><circle cx="24" cy="24" r="4" fill="currentColor"/><path fill="currentColor" d="M24 21c-2-5-1-11 4-15 5 3 6 9 3 14-2 3-4 4-7 5Zm3 3c5-2 11-1 15 4-3 5-9 6-14 3-3-2-4-4-5-7Zm-3 0c-3 2-5 5-5 8-1 5 3 9 8 10 2-5 0-10-3-13Zm0-3c-3-2-6-3-9-2-5 1-7 6-6 11 5 1 10-2 12-5 2-3 3-4 3-4Zm0 3c2-3 3-6 2-9-1-5-6-7-11-6-1 5 2 10 5 12 2 2 4 3 4 3Z"/></svg>`
         : `<svg class="brand-custom-mark brand-${brand}-mark" viewBox="0 0 48 48" role="img" aria-label="${brand}"><path fill="none" stroke="currentColor" stroke-width="3" d="M14 7h20a3 3 0 0 1 3 3v28a3 3 0 0 1-3 3H14a3 3 0 0 1-3-3V10a3 3 0 0 1 3-3Zm-1-4h8m6 0h8"/><path fill="currentColor" d="M27 12 17 27h7l-2 10 10-15h-7z"/></svg>`;
       mark.outerHTML = markSvg;
     }
