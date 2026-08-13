@@ -136,6 +136,8 @@
   "sshNotTested": "SSH not tested",
   "sshTesting": "Testing SSH...",
   "sshConnected": "Connected",
+  "saveSettings": "Save",
+  "settingsSaved": "Settings saved",
   "upsHost": "UPS/NUT host",
   "upsPort": "UPS/NUT port",
   "upsDriver": "NUT driver",

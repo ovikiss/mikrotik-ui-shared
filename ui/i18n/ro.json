@@ -136,6 +136,8 @@
   "sshNotTested": "SSH netestat",
   "sshTesting": "Se testeaza SSH...",
   "sshConnected": "Conectat",
+  "saveSettings": "Salvează",
+  "settingsSaved": "Setările au fost salvate",
   "upsHost": "Host UPS/NUT",
   "upsPort": "Port UPS/NUT",
   "upsDriver": "Driver NUT",
