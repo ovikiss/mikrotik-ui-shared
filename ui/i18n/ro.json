@@ -167,5 +167,12 @@
   "sec": "sec",
   "refreshVms": "Reîmprospătează VM-urile",
   "noVms": "Nu au fost găsite VM-uri pe Proxmox.",
-  "loadVmsError": "VM-urile nu au putut fi încărcate din Proxmox."
+  "loadVmsError": "VM-urile nu au putut fi încărcate din Proxmox.",
+  "pageTitle": "Proxmox NUT Policy GUI",
+  "vmShutdownRules": "Reguli de oprire VM",
+  "loadUpsError": "Nu pot incarca statusul UPS.",
+  "upsDetails": "Detalii UPS",
+  "upsModel": "Model",
+  "upsVendor": "Producator",
+  "upsName": "UPS"
 }

@@ -167,5 +167,12 @@
   "sec": "sec",
   "refreshVms": "Refresh VMs",
   "noVms": "No VMs found on Proxmox.",
-  "loadVmsError": "Could not load VMs from Proxmox."
+  "loadVmsError": "Could not load VMs from Proxmox.",
+  "pageTitle": "Proxmox NUT Policy GUI",
+  "vmShutdownRules": "VM shutdown rules",
+  "loadUpsError": "Could not load UPS status.",
+  "upsDetails": "UPS details",
+  "upsModel": "Model",
+  "upsVendor": "Vendor",
+  "upsName": "UPS"
 }
