@@ -686,7 +686,9 @@
     const fallback = await fetchJson("/i18n/en.json?_=" + Date.now());
     const selected = requested === "en" ? {} : await fetchJson(`/i18n/${requested}.json?_=${Date.now()}`);
     shared.fallbackTranslations = fallback || {};
-    shared.translations = selected || shared.fallbackTranslations;
+    shared.translations = selected && Object.keys(selected).length > 0
+      ? selected
+      : shared.fallbackTranslations;
   }
 
   function availableLanguageCode(code) {
