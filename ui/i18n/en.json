@@ -163,6 +163,8 @@
   "working": "Working…",
   "policyOk": "Policy test: OK",
   "deployOk": "Last deploy: OK",
+  "savedLocally": "Settings saved locally.",
+  "publishFailed": "Publishing failed",
   "error": "Error: ",
   "connectionError": "Connection error",
   "min": "min",

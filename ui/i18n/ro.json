@@ -163,6 +163,8 @@
   "working": "Se lucrează…",
   "policyOk": "Test politică: OK",
   "deployOk": "Ultima publicare: OK",
+  "savedLocally": "Setările au fost salvate local.",
+  "publishFailed": "Publicarea a eșuat",
   "error": "Eroare: ",
   "connectionError": "Eroare de conexiune",
   "min": "min",
