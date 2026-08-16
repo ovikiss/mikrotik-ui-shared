@@ -194,6 +194,7 @@
   "shareFolder": "Folder share",
   "exportFolder": "Folder export",
   "browse": "Alege folder",
+  "addFolder": "Adaugă",
   "authorizedUsers": "Utilizatori autorizați",
   "authorizedUsersHint": "Utilizatorii care au voie să se conecteze la acest share.",
   "canWrite": "Pot scrie",

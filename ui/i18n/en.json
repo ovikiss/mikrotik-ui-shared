@@ -194,6 +194,7 @@
   "shareFolder": "Share folder",
   "exportFolder": "Export folder",
   "browse": "Browse",
+  "addFolder": "Add",
   "authorizedUsers": "Authorized users",
   "authorizedUsersHint": "Users allowed to connect to this share.",
   "canWrite": "Can write",
