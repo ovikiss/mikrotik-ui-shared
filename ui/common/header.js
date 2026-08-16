@@ -514,7 +514,7 @@
     const mark = rootEl.querySelector(".brand-mikrotik-mark");
     if (brand !== "mikrotik" && mark) {
       const markSvg = brand === "share-manager"
-        ? `<svg class="brand-custom-mark brand-${brand}-mark" viewBox="0 0 48 48" role="img" aria-label="Share Manager"><path fill="none" stroke="currentColor" stroke-width="3" d="M14 10h20a4 4 0 0 1 4 4v22a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4Zm4-5h12"/><path fill="currentColor" d="M24 15 14 25h7v9h6v-9h7z"/><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" d="M16 6h16"/></svg>`
+        ? `<img class="brand-custom-mark brand-${brand}-mark" src="/share-manager-icon.svg" alt="Share Manager" />`
         : brand === "fancontrol"
         ? `<svg class="brand-custom-mark brand-${brand}-mark" viewBox="0 0 48 48" role="img" aria-label="Fancontrol"><circle cx="24" cy="24" r="4" fill="currentColor"/><path fill="currentColor" d="M24 21c-2-5-1-11 4-15 5 3 6 9 3 14-2 3-4 4-7 5Zm3 3c5-2 11-1 15 4-3 5-9 6-14 3-3-2-4-4-5-7Zm-3 0c-3 2-5 5-5 8-1 5 3 9 8 10 2-5 0-10-3-13Zm0-3c-3-2-6-3-9-2-5 1-7 6-6 11 5 1 10-2 12-5 2-3 3-4 3-4Zm0 3c2-3 3-6 2-9-1-5-6-7-11-6-1 5 2 10 5 12 2 2 4 3 4 3Z"/></svg>`
         : `<svg class="brand-custom-mark brand-${brand}-mark" viewBox="0 0 48 48" role="img" aria-label="${brand}"><path fill="none" stroke="currentColor" stroke-width="3" d="M14 7h20a3 3 0 0 1 3 3v28a3 3 0 0 1-3 3H14a3 3 0 0 1-3-3V10a3 3 0 0 1 3-3Zm-1-4h8m6 0h8"/><path fill="currentColor" d="M27 12 17 27h7l-2 10 10-15h-7z"/></svg>`;
