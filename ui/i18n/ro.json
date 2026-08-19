@@ -208,6 +208,8 @@
   "implicitReadOnly": "Doar citire implicit",
   "guestAccess": "Acces guest fără cont",
   "recycleForDeleted": "Recycle Bin pentru fișiere șterse",
+  "timeMachine": "Backup Time Machine",
+  "timeMachineHint": "Folosește acest share pentru backup-uri macOS Time Machine. Recycle Bin este dezactivat automat.",
   "saveShare": "Salvează share",
   "saveExport": "Salvează export",
   "sharePath": "Path",

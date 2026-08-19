@@ -208,6 +208,8 @@
   "implicitReadOnly": "Read-only by default",
   "guestAccess": "Guest access without an account",
   "recycleForDeleted": "Recycle Bin for deleted files",
+  "timeMachine": "Time Machine backup",
+  "timeMachineHint": "Use this share for macOS Time Machine backups. Recycle Bin is disabled automatically.",
   "saveShare": "Save share",
   "saveExport": "Save export",
   "sharePath": "Path",
