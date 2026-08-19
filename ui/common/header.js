@@ -305,17 +305,6 @@
     return { kind, defs, labelEl, toggleEl, menuEl, selectEl, currentLabelEl, currentIconEl };
   }
 
-  function closeDropdownMenu(menuEl, toggleEl) {
-    if (menuEl) menuEl.classList.remove("open");
-    if (toggleEl) toggleEl.setAttribute("aria-expanded", "false");
-  }
-
-  function toggleDropdownMenu(menuEl, toggleEl) {
-    if (!menuEl || !toggleEl) return;
-    const open = menuEl.classList.toggle("open");
-    toggleEl.setAttribute("aria-expanded", open ? "true" : "false");
-  }
-
   function closeControl(control) {
     if (!control) return;
     closeDropdownMenu(control.menuEl, control.toggleEl);
