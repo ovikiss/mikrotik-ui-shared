@@ -511,9 +511,12 @@
     const brandText = rootEl.dataset.brandText || "";
     const brandVersion = rootEl.dataset.brandVersion || "";
     const subtitle = rootEl.dataset.subtitle || "";
+    const brandImage = rootEl.dataset.brandImage || "";
     const mark = rootEl.querySelector(".brand-mikrotik-mark");
     if (brand !== "mikrotik" && mark) {
-      const markSvg = brand === "share-manager"
+      const markSvg = brandImage
+        ? `<img class="brand-custom-mark brand-${brand}-mark" src="${brandImage}" alt="${brandText || brand}" />`
+        : brand === "share-manager"
         ? `<img class="brand-custom-mark brand-${brand}-mark" src="/share-manager-icon.svg" alt="Share Manager" />`
         : brand === "fancontrol"
         ? `<svg class="brand-custom-mark brand-${brand}-mark" viewBox="0 0 48 48" role="img" aria-label="Fancontrol"><circle cx="24" cy="24" r="4" fill="currentColor"/><path fill="currentColor" d="M24 21c-2-5-1-11 4-15 5 3 6 9 3 14-2 3-4 4-7 5Zm3 3c5-2 11-1 15 4-3 5-9 6-14 3-3-2-4-4-5-7Zm-3 0c-3 2-5 5-5 8-1 5 3 9 8 10 2-5 0-10-3-13Zm0-3c-3-2-6-3-9-2-5 1-7 6-6 11 5 1 10-2 12-5 2-3 3-4 3-4Zm0 3c2-3 3-6 2-9-1-5-6-7-11-6-1 5 2 10 5 12 2 2 4 3 4 3Z"/></svg>`
