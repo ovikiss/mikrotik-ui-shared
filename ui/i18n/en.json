@@ -289,7 +289,7 @@
   "restart": "Restart",
   "saveApply": "Save & Apply",
   "configurationSaved": "Configuration saved",
-  "stopped": "Fancontrol stopped. Automatic hardware control is active.",
+  "fancontrolStopped": "Fancontrol stopped. Automatic hardware control is active.",
   "restartRequested": "Fancontrol service restart requested.",
   "modeChanged": "Active mode changed to {mode}.",
   "coolingCurve": "Cooling curve",

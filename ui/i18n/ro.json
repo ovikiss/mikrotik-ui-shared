@@ -289,7 +289,7 @@
   "restart": "Repornește",
   "saveApply": "Salvează și aplică",
   "configurationSaved": "Configurație salvată",
-  "stopped": "Fancontrol oprit. Controlul hardware automat este activ.",
+  "fancontrolStopped": "Fancontrol oprit. Controlul hardware automat este activ.",
   "restartRequested": "Repornirea serviciului Fancontrol a fost solicitată.",
   "modeChanged": "Modul activ a fost schimbat în {mode}.",
   "coolingCurve": "Curbă de răcire",
