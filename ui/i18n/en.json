@@ -74,6 +74,8 @@
   "upToDate": "up to date",
   "running": "running",
   "stopped": "stopped",
+  "vmRunning": "running",
+  "vmStopped": "stopped",
   "selectRollbackVersion": "Select rollback version",
   "runCheckToLoadVersions": "Run check to load versions",
   "noRollbackTargetSelected": "No rollback target selected. Run check and choose a rollback version.",

@@ -74,6 +74,8 @@
   "upToDate": "la zi",
   "running": "rulează",
   "stopped": "oprit",
+  "vmRunning": "rulează",
+  "vmStopped": "oprit",
   "selectRollbackVersion": "Selectează versiunea pentru rollback",
   "runCheckToLoadVersions": "Rulează verificarea pentru a încărca versiunile",
   "noRollbackTargetSelected": "Nicio versiune de rollback selectată. Rulează verificarea și alege o versiune.",
