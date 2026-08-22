@@ -670,7 +670,7 @@
 
 
 /* Proxmox Control Center integration. Scoped so other shared-ui consumers are unchanged. */
-body.proxmox-control-center .ucc-header{position:sticky;top:0;z-index:20;border-bottom:0!important;margin:0!important;padding:0!important;background:var(--bg)!important;color:var(--text)!important}
+body.proxmox-control-center .ucc-header{position:sticky;top:0;z-index:20;width:100%!important;height:auto!important;min-height:64.625px!important;border-bottom:0!important;margin:0!important;padding:0!important;background:var(--bg)!important;color:var(--text)!important}
 body.proxmox-control-center .ucc-header .brand-custom-mark{background:none!important;transform:none!important}
 body.proxmox-control-center .ucc-header .subtitle{margin:4px 0 0!important;line-height:1.1!important}
 body.proxmox-control-center .ucc-header .controls{flex-wrap:nowrap!important;gap:4px!important}
