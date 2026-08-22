@@ -719,3 +719,4 @@ body.proxmox-control-center.fancontrol-app .app-shell>.topbar:not(.ucc-header){m
 
 /* Preserve Share Manager's semantic ON/Recycle green in the unified shell. */
 body.proxmox-control-center.share-app .status-pill:not(.off){background:rgba(53,217,139,.18)!important;border-color:rgba(53,217,139,.28)!important;color:#35d98b!important}
+body.proxmox-control-center .button{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:40px!important;padding:9px 16px!important;border:.5px solid var(--blue)!important;border-radius:10px!important;background:var(--blue)!important;color:#fff!important;font:inherit!important;font-weight:700!important;cursor:pointer!important;box-shadow:var(--glass-inset)!important}
