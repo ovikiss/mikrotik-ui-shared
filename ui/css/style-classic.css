@@ -703,3 +703,4 @@ body.proxmox-control-center .btn.danger,body.proxmox-control-center button.dange
 body.proxmox-control-center .btn.warning,body.proxmox-control-center button.warning{background:#b77a05!important;border-color:#b77a05!important;color:#fff!important;font-weight:700!important}
 body.proxmox-control-center .status-pill:not(.off),body.proxmox-control-center .status.success,body.proxmox-control-center .status.running,body.proxmox-control-center .save-state,body.proxmox-control-center .mini-status{color:#35d98b!important;font-weight:700!important}
 body.proxmox-control-center .text-success,body.proxmox-control-center .text-green{color:#35d98b!important;font-weight:700!important}
+body.proxmox-control-center .ucc-header .brand-text{font-weight:500!important}
