@@ -690,7 +690,6 @@
       white-space: pre-wrap;
       word-break: break-word;
     }
-+
 
 /* Proxmox Control Center integration. Scoped so other shared-ui consumers are unchanged. */
 body.proxmox-control-center .ucc-header{position:sticky;top:0;z-index:20;border-bottom:0!important;margin-bottom:0!important;background:var(--bg)!important;color:var(--text)!important}
