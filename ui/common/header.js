@@ -853,6 +853,7 @@
   shared.getState = () => cloneState();
   shared.setSetting = setSetting;
   shared.renderAllMenus = renderAllMenus;
+  shared.applyBrand = applyBrand;
   shared.loadHeaderControlsConfig = loadHeaderControlsConfig;
   shared.loadRegistries = loadRegistries;
   shared.loadTranslations = loadTranslations;
