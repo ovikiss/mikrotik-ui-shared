@@ -283,6 +283,7 @@
   "fanConfiguration": "Configurare ventilatoare",
   "fanConfigurationSubtitle": "Configurează curbele de temperatură și modurile ventilatoarelor pentru nod.",
   "fans": "Ventilatoare",
+  "testSSH": "Testează SSH",
   "fansSubtitle": "Alege ventilatoarele controlate și curba folosită pentru fiecare.",
   "fancontrolActive": "Fancontrol activ",
   "fancontrolEnabled": "Fancontrol activat",

@@ -283,6 +283,7 @@
   "fanConfiguration": "Fan configuration",
   "fanConfigurationSubtitle": "Configure temperature curves and fan modes for your node.",
   "fans": "Fans",
+  "testSSH": "Test SSH",
   "fansSubtitle": "Choose which fans are controlled and select a curve for each fan.",
   "fancontrolActive": "Fancontrol active",
   "fancontrolEnabled": "Fancontrol enabled",
