@@ -507,11 +507,12 @@
 
   function applyBrand(rootEl) {
     if (!rootEl) return;
-    const brand = String(rootEl.dataset.brand || "mikrotik").trim().toLowerCase();
-    const brandText = rootEl.dataset.brandText || "";
-    const brandVersion = rootEl.dataset.brandVersion || "";
+    const shellLocked = document.body?.classList.contains("proxmox-control-center");
+    const brand = shellLocked ? "control-center" : String(rootEl.dataset.brand || "mikrotik").trim().toLowerCase();
+    const brandText = shellLocked ? "PROXMOX CONTROL CENTER" : (rootEl.dataset.brandText || "");
+    const brandVersion = shellLocked ? "" : (rootEl.dataset.brandVersion || "");
     const subtitle = rootEl.dataset.subtitle || "";
-    const brandImage = rootEl.dataset.brandImage || "";
+    const brandImage = shellLocked ? "/icon.png" : (rootEl.dataset.brandImage || "");
     const mark = rootEl.querySelector(".brand-mikrotik-mark");
     if (brand !== "mikrotik" && mark) {
       const markSvg = brandImage
