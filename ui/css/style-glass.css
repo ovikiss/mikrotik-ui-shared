@@ -1376,6 +1376,8 @@
     }
 
 /* Proxmox Control Center integration. Scoped so other shared-ui consumers are unchanged. */
+body.proxmox-control-center .panel>.card,body.proxmox-control-center .panel .ups-card,body.proxmox-control-center .panel .ssh-panel,body.proxmox-control-center .panel .fan-panel,body.proxmox-control-center .panel .curve-panel,body.proxmox-control-center .panel .share-card{background:var(--card)!important;border:.5px solid var(--border)!important;border-radius:20px!important;box-shadow:var(--glass-shadow),var(--glass-inset)!important}
+body.proxmox-control-center .panel .fan-card,body.proxmox-control-center .panel .recycle-card{background:var(--card-strong)!important;border:.5px solid var(--border)!important;border-radius:12px!important;box-shadow:var(--glass-inset)!important}
 body.proxmox-control-center .shell{padding-left:12px!important;padding-right:12px!important}
 body.proxmox-control-center .ucc-header{position:sticky;top:0;z-index:20;width:100%!important;height:auto!important;min-height:64.625px!important;border:.5px solid var(--border)!important;border-bottom:0!important;border-radius:20px 20px 0 0!important;margin:0!important;padding:0 20px!important;background:var(--card)!important;color:var(--text)!important;backdrop-filter:var(--glass-blur)!important;-webkit-backdrop-filter:var(--glass-blur)!important;box-shadow:var(--glass-shadow),var(--glass-inset)!important}
 body.proxmox-control-center .ucc-header .brand-custom-mark{background:none!important;transform:none!important}
