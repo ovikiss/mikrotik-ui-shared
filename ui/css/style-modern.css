@@ -716,3 +716,6 @@ body.proxmox-control-center .ucc-tabs .tab-icon{width:24px!important;height:24px
 body.proxmox-control-center .ucc-tabs a:hover,body.proxmox-control-center .ucc-tabs a.active{background:var(--table-head)!important;border-color:var(--table-border)!important;color:var(--text)!important}
 body.proxmox-control-center.fancontrol-app .app-shell>.topbar:not(.ucc-header){min-height:80px}
 @media(max-width:680px){body.proxmox-control-center .ucc-header .controls{flex-wrap:wrap!important}}
+
+/* Preserve Share Manager's semantic ON/Recycle green in the unified shell. */
+body.proxmox-control-center.share-app .status-pill:not(.off){background:rgba(53,217,139,.18)!important;border-color:rgba(53,217,139,.28)!important;color:#35d98b!important}
