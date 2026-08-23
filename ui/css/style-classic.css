@@ -720,3 +720,8 @@ body.proxmox-control-center .ucc-header .brand-custom-mark{width:44px!important;
 body.proxmox-control-center select,body.proxmox-control-center input:not([type="checkbox"]):not([type="radio"]),body.proxmox-control-center textarea{background:var(--card-strong)!important;color:var(--text)!important;border:.5px solid var(--border)!important;border-radius:10px!important;font:inherit!important}
 body.proxmox-control-center select option{background:var(--card-strong)!important;color:var(--text)!important}
 html[data-theme="dark"] body.proxmox-control-center select{color-scheme:dark}html[data-theme="light"] body.proxmox-control-center select{color-scheme:light}
+body.proxmox-control-center.fancontrol-app .curve-grid{border:.5px solid var(--border)!important;border-radius:12px!important;background:var(--card)!important;overflow:hidden!important}
+body.proxmox-control-center.fancontrol-app .grid-head{background:var(--table-head)!important;border-bottom:.5px solid var(--table-border)!important}
+body.proxmox-control-center.fancontrol-app .curve-row{background:var(--card)!important;border-top:.5px solid var(--table-border)!important}
+body.proxmox-control-center.fancontrol-app .curve-row:nth-child(odd){background:var(--card-strong)!important}
+body.proxmox-control-center.fancontrol-app .grid-head .full{color:#f59e0b!important}body.proxmox-control-center.fancontrol-app .grid-head .cool{color:var(--blue)!important}body.proxmox-control-center.fancontrol-app .grid-head .quiet{color:#35d98b!important}
