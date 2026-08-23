@@ -770,3 +770,61 @@ body.proxmox-control-center .tabs,body.proxmox-control-center .ucc-tabs{top:112p
 @media(max-width:760px){body.proxmox-control-center .ucc-header{height:auto!important;min-height:112px!important}.tabs,.ucc-tabs{top:auto!important}}
 .ucc-select{position:relative;width:100%}.ucc-select>select{position:absolute!important;inset:0;width:100%;height:100%;opacity:0!important;pointer-events:none!important}.ucc-select-toggle{display:block!important;width:100%!important;text-align:left!important;cursor:pointer!important;padding-right:34px!important;position:relative}.ucc-select-toggle::after{content:'⌄';position:absolute;right:12px;top:50%;transform:translateY(-55%);color:var(--muted);font-size:18px}.ucc-select-menu{display:none;position:absolute;left:0;right:0;top:calc(100% + 5px);z-index:80;padding:5px;border:1px solid var(--border);border-radius:10px;background:var(--card-strong);box-shadow:var(--shadow-lg,0 12px 28px rgba(0,0,0,.28))}.ucc-select-menu.open{display:grid;gap:2px}.ucc-select-option{width:100%!important;border:0!important;border-radius:7px!important;background:transparent!important;color:var(--text)!important;text-align:left!important;padding:9px 11px!important;cursor:pointer!important}.ucc-select-option:hover,.ucc-select-option:focus{background:var(--table-head)!important;color:var(--text)!important}
 .ucc-header~.panel .fan-card input[type=checkbox]{position:static!important;opacity:1!important;appearance:auto!important;width:19px!important;height:19px!important;margin:0!important;accent-color:var(--blue)!important;cursor:pointer!important;pointer-events:auto!important}.ucc-header~.panel .fan-card .checkmark{display:none!important}
+
+/* Final shared geometry/typography contract. Themes may change tokens only. */
+body.proxmox-control-center,
+body.proxmox-control-center *{box-sizing:border-box!important}
+body.proxmox-control-center .panel,
+body.proxmox-control-center .panel .dashboard-container,
+body.proxmox-control-center .panel .dashboard-container.app,
+body.proxmox-control-center .panel .share-app,
+body.proxmox-control-center .panel .fan-app,
+body.proxmox-control-center .panel .ups-app{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif!important;font-size:17.5px!important;line-height:normal!important;letter-spacing:normal!important}
+body.proxmox-control-center .panel h1,
+body.proxmox-control-center .panel h2,
+body.proxmox-control-center .panel h3,
+body.proxmox-control-center .panel p,
+body.proxmox-control-center .panel label,
+body.proxmox-control-center .panel th,
+body.proxmox-control-center .panel td,
+body.proxmox-control-center .panel button,
+body.proxmox-control-center .panel input,
+body.proxmox-control-center .panel select,
+body.proxmox-control-center .panel textarea{font-family:inherit!important;letter-spacing:normal!important}
+body.proxmox-control-center .panel .hero h1{font-size:29.75px!important;line-height:29.75px!important;font-weight:700!important;margin:0 0 6px!important}
+body.proxmox-control-center .panel .hero .subtitle{font-size:16.625px!important;line-height:normal!important;font-weight:400!important;margin:16.625px 0 12px!important}
+body.proxmox-control-center .panel .section-heading h1,
+body.proxmox-control-center .panel .section-heading h2{font-size:29.75px!important;line-height:1.1!important;font-weight:700!important;margin:0!important}
+body.proxmox-control-center .panel .section-heading p,
+body.proxmox-control-center .panel .section-heading .subtitle{font-size:16.625px!important;line-height:normal!important;font-weight:400!important;margin:12px 0 0!important}
+body.proxmox-control-center .panel .ssh-panel,
+body.proxmox-control-center .panel .fan-panel,
+body.proxmox-control-center .panel .curve-panel,
+body.proxmox-control-center .panel .share-card,
+body.proxmox-control-center .panel .ups-section,
+body.proxmox-control-center .panel .ups-connection,
+body.proxmox-control-center .panel .ups-stat{margin-left:0!important;margin-right:0!important}
+body.proxmox-control-center .panel .ssh-panel{padding:22px!important;margin-top:18px!important;margin-bottom:0!important}
+body.proxmox-control-center .panel .fan-panel,
+body.proxmox-control-center .panel .curve-panel,
+body.proxmox-control-center .panel .share-card,
+body.proxmox-control-center .panel .ups-section{padding:12px!important;margin-top:20px!important;margin-bottom:20px!important}
+body.proxmox-control-center .panel .ups-connection{padding:12px!important;margin-top:0!important;margin-bottom:20px!important}
+body.proxmox-control-center .panel .ups-stat{padding:12px!important;margin-top:0!important;margin-bottom:0!important}
+body.proxmox-control-center .panel .fan-list{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px!important;margin:20px 0!important;padding:0!important}
+body.proxmox-control-center .panel .fan-card{min-width:0!important;padding:15px 16px!important;margin:0!important}
+body.proxmox-control-center .panel .curve-grid{width:100%!important;margin:0!important}
+body.proxmox-control-center .panel #app>section.card,
+body.proxmox-control-center .panel #app>table.card{width:100%!important;margin:14px 0!important;padding:12px!important}
+body.proxmox-control-center .panel #app>table.card{table-layout:fixed!important;border-collapse:collapse!important;font-size:17.5px!important;line-height:normal!important}
+body.proxmox-control-center .panel #app>table.card th,
+body.proxmox-control-center .panel #app>table.card td,
+body.proxmox-control-center .panel .share-card table th,
+body.proxmox-control-center .panel .share-card table td{font-family:inherit!important;font-size:17.5px!important;font-weight:400!important;line-height:normal!important;letter-spacing:normal!important;padding:8px!important}
+body.proxmox-control-center .panel #app>table.card th,
+body.proxmox-control-center .panel .share-card table th{font-weight:700!important}
+body.proxmox-control-center .panel button,
+body.proxmox-control-center .panel .button,
+body.proxmox-control-center .panel .btn{font-family:inherit!important;font-size:17.5px!important;line-height:normal!important;font-weight:700!important;min-height:40px!important;padding:9px 16px!important;border-radius:10px!important}
+@media(max-width:900px){body.proxmox-control-center .panel .fan-list{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:600px){body.proxmox-control-center .panel .fan-list{grid-template-columns:1fr!important}}
