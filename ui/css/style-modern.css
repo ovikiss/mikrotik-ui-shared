@@ -854,3 +854,30 @@ body.proxmox-control-center .panel .button,
 body.proxmox-control-center .panel .btn{font-family:inherit!important;font-size:17.5px!important;line-height:normal!important;font-weight:700!important;min-height:40px!important;padding:9px 16px!important;border-radius:10px!important}
 @media(max-width:900px){body.proxmox-control-center .panel .fan-list{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media(max-width:600px){body.proxmox-control-center .panel .fan-list{grid-template-columns:1fr!important}}
+
+/* Unified Proxmox Control Center surface contract: wallpaper outside, frost only on chrome/content elements. */
+body.proxmox-control-center{background:var(--wallpaper-url) center/cover no-repeat fixed,var(--bg)!important;color:var(--text)!important}
+body.proxmox-control-center .ucc-header,
+body.proxmox-control-center .tabs,
+body.proxmox-control-center .ucc-tabs{background:var(--card)!important;color:var(--text)!important;backdrop-filter:var(--glass-blur)!important;-webkit-backdrop-filter:var(--glass-blur)!important;box-shadow:var(--glass-shadow),var(--glass-inset)!important}
+body.proxmox-control-center .panel,
+body.proxmox-control-center .panel>main,
+body.proxmox-control-center .panel>.dashboard-container,
+body.proxmox-control-center .panel>.share-app,
+body.proxmox-control-center .panel>.fan-app,
+body.proxmox-control-center .panel>.ups-app{background:transparent!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+body.proxmox-control-center .panel .card,
+body.proxmox-control-center .panel section.card,
+body.proxmox-control-center .panel table.card,
+body.proxmox-control-center .panel .share-card,
+body.proxmox-control-center .panel .ups-card,
+body.proxmox-control-center .panel .ups-section,
+body.proxmox-control-center .panel .ssh-panel,
+body.proxmox-control-center .panel .fan-panel,
+body.proxmox-control-center .panel .curve-panel,
+body.proxmox-control-center .panel .fan-card,
+body.proxmox-control-center .panel .recycle-card,
+body.proxmox-control-center .panel .data-table{background:var(--card)!important;border-color:var(--border)!important;backdrop-filter:var(--glass-blur)!important;-webkit-backdrop-filter:var(--glass-blur)!important;box-shadow:var(--glass-shadow),var(--glass-inset)!important}
+body.proxmox-control-center .panel th,
+body.proxmox-control-center .panel .table-head,
+body.proxmox-control-center .panel .grid-head{background:var(--table-head)!important}
