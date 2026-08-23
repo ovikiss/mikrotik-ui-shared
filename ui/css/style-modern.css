@@ -797,7 +797,7 @@ body.proxmox-control-center .panel .share-app,
 body.proxmox-control-center .panel .fan-app,
 body.proxmox-control-center .panel .ups-app{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif!important;font-size:17.5px!important;line-height:normal!important;letter-spacing:normal!important}
 body.proxmox-control-center .panel .dashboard-container.app{background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
-body.proxmox-control-center,body.proxmox-control-center.share-app,body.proxmox-control-center.ups-app,body.proxmox-control-center.fancontrol-app{background:var(--bg)!important}
+body.proxmox-control-center,body.proxmox-control-center.share-app,body.proxmox-control-center.ups-app,body.proxmox-control-center.fancontrol-app{background:var(--wallpaper-url) center/cover no-repeat fixed,var(--bg)!important}
 body.proxmox-control-center .panel h1,
 body.proxmox-control-center .panel h2,
 body.proxmox-control-center .panel h3,
