@@ -727,6 +727,7 @@ body.proxmox-control-center .panel .section-heading{min-height:91px!important;bo
 body.proxmox-control-center .panel .hero{min-height:196px!important;box-sizing:border-box!important}
 body.proxmox-control-center .panel .hero{align-items:flex-start!important}
 body.proxmox-control-center .panel .hero .subtitle{font-size:16.625px!important;line-height:normal!important;margin:16.625px 0 12px!important}
+body.proxmox-control-center .panel #app>section.card,body.proxmox-control-center .panel #app>table.card{width:100%!important;box-sizing:border-box!important;padding:12px!important;border:.5px solid var(--border)!important;border-radius:20px!important;margin:14px 0!important;background:var(--card)!important;}
 @media(max-width:900px){body.proxmox-control-center .panel .ups-stats{grid-template-columns:repeat(2,minmax(0,1fr))!important}body.proxmox-control-center .panel .fan-list{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media(max-width:600px){body.proxmox-control-center .panel .ups-stats,body.proxmox-control-center .panel .fan-list{grid-template-columns:1fr!important}}
 body.proxmox-control-center .panel button{font:inherit!important;min-height:40px!important;padding:9px 16px!important;border:.5px solid var(--border)!important;border-radius:10px!important;background:var(--card-strong)!important;color:var(--text)!important;box-shadow:var(--glass-inset)!important}
