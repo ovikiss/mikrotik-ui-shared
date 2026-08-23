@@ -1418,6 +1418,8 @@ body.proxmox-control-center .modal{background:rgba(5,10,20,.82)!important;backdr
 body.proxmox-control-center .modal .dialog{background:var(--bg)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
 body.proxmox-control-center .modal{display:flex!important;align-items:flex-start!important;justify-content:center!important;padding:80px 17px 24px!important;box-sizing:border-box!important;overflow:auto!important}
 body.proxmox-control-center .modal .dialog{max-height:calc(100vh - 104px)!important;box-sizing:border-box!important;margin:0!important}
+body.proxmox-control-center .modal{display:block!important;overflow:auto!important}
+body.proxmox-control-center .modal .dialog{position:relative!important;top:0!important;left:auto!important;transform:none!important;margin:0 auto!important}
 body.proxmox-control-center .ucc-header{height:71.25px!important;min-height:71.25px!important;box-sizing:border-box!important}
 body.proxmox-control-center .ucc-header [data-header-control="pollInterval"]{display:none!important}
 body.proxmox-control-center .ucc-header .brand-custom-mark{width:44px!important;height:44px!important;max-width:44px!important;max-height:44px!important;flex:0 0 44px!important;object-fit:contain!important}
