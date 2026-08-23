@@ -13,6 +13,9 @@
       --glass-blur: none;
       --glass-shadow: none;
       --glass-inset: none;
+      --overlay-dim: rgba(255, 255, 255, 0);
+      --overlay-a: rgba(31, 84, 160, 0);
+      --overlay-b: rgba(23, 62, 126, 0);
       --wallpaper-url: none;
       --base-font-size: clamp(14px, .35vw + 12px, 18px);
       --font-scale: 1;
@@ -32,6 +35,9 @@
       --glass-blur: none;
       --glass-shadow: none;
       --glass-inset: none;
+      --overlay-dim: rgba(0, 0, 0, 0);
+      --overlay-a: rgba(31, 84, 160, 0);
+      --overlay-b: rgba(23, 62, 126, 0);
       --wallpaper-url: none;
     }
     html[data-font-size="25"] { --base-font-size: 14px; --font-scale: 0.8; }
