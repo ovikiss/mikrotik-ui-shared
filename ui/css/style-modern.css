@@ -904,3 +904,6 @@ body.proxmox-control-center .panel .ssh-grid{display:grid;grid-template-columns:
 body.proxmox-control-center .panel .mini-status,body.proxmox-control-center .panel .switch-label{margin-top:16px}
 @media(max-width:900px){body.proxmox-control-center .panel .fan-list{grid-template-columns:repeat(2,minmax(0,1fr))}.panel .ssh-grid{grid-template-columns:1fr}.panel .ssh-wide{grid-column:auto}.panel .grid-head,.panel .curve-row{grid-template-columns:82px repeat(3,1fr);padding-left:9px;padding-right:9px}.panel .pair{grid-template-columns:minmax(36px,58px) 14px;gap:7px 3px}.panel .actions{flex-wrap:wrap}.panel .actions-right{width:100%;margin-left:0;justify-content:space-between}}
 @media(max-width:600px){body.proxmox-control-center .panel .fan-list{grid-template-columns:1fr}.panel .panel-footer{display:block;line-height:1.8}}
+/* UPS statistics wrapper is transparent in every theme; only the four cards carry a surface. */
+body.proxmox-control-center .panel > .ups-stats,
+body.proxmox-control-center .panel .ups-stats{background:transparent!important;background-image:none!important;border:0!important;border-radius:0!important;box-shadow:none!important}
