@@ -323,6 +323,8 @@
   "controlCenterSingleDocker": "un singur Docker",
   "controlCenterRefresh": "Reîmprospătare",
   "controlCenterManual": "manual",
+  "controlCenterSharesSubtitle": "Partajări",
+  "controlCenterPveStorageSubtitle": "Monitorizare stocare PVE",
   "pveMonitorTitle": "Monitor PVE Lite",
   "pveMonitorDirect": "Direct: zpool + zfs + qm + Debian Docker",
   "pveMonitorStorage": "Stocare ZFS",

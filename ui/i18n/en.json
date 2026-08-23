@@ -323,6 +323,8 @@
   "controlCenterSingleDocker": "one Docker",
   "controlCenterRefresh": "Refresh",
   "controlCenterManual": "manual",
+  "controlCenterSharesSubtitle": "Shares",
+  "controlCenterPveStorageSubtitle": "Monitor PVE Storage",
   "pveMonitorTitle": "PVE Lite Monitor",
   "pveMonitorDirect": "Direct: zpool + zfs + qm + Debian Docker",
   "pveMonitorStorage": "ZFS storage",
