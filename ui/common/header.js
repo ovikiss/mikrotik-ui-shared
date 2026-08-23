@@ -547,7 +547,7 @@
       try {
         const current = new URL(link.getAttribute("href") || css, document.baseURI);
         current.pathname = css.startsWith("/") ? css : `/${css}`;
-        link.setAttribute("href", `${current.pathname}?v=${Date.now()}`);
+        link.setAttribute("href", `${current.pathname}${current.search || ""}`);
       } catch (_) {
         link.setAttribute("href", `/${css}`);
       }
