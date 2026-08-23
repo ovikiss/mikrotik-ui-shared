@@ -727,6 +727,7 @@ body.proxmox-control-center .status-pill:not(.off),body.proxmox-control-center .
 body.proxmox-control-center .text-success,body.proxmox-control-center .text-green{color:#35d98b!important;font-weight:700!important}
 body.proxmox-control-center .ucc-header .brand-text{font-weight:500!important}
 body.proxmox-control-center .panel{background:transparent!important;color:var(--text)!important}
+body.proxmox-control-center .panel{border:0!important;border-radius:0!important;box-shadow:none!important}
 body.proxmox-control-center .panel .ups-connections{width:100%!important;grid-template-columns:minmax(0,1fr)!important;box-sizing:border-box!important}
 body.proxmox-control-center .panel .ups-connection{width:100%!important;max-width:none!important;box-sizing:border-box!important}
 /* Shared layout contract: themes change tokens, never geometry. */
