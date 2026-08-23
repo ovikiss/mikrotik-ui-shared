@@ -732,3 +732,8 @@ body.proxmox-control-center .ucc-header>div:first-child{transform:translateY(10p
 body.proxmox-control-center .ucc-header .controls{transform:translateY(12px)!important}
 body.proxmox-control-center .tabs,body.proxmox-control-center .ucc-tabs{top:88px!important}
 @media(max-width:760px){body.proxmox-control-center .ucc-header{width:100%!important;max-width:100%!important;margin-left:0!important;margin-right:0!important;height:auto!important;min-height:88px!important}body.proxmox-control-center .ucc-header>div:first-child{transform:translateY(8px)!important;min-width:0!important}body.proxmox-control-center .ucc-header .controls{transform:none!important;flex-wrap:wrap!important;justify-content:flex-start!important}.ucc-header .brand-text{max-width:calc(100vw - 100px)!important}.tabs,.ucc-tabs{top:auto!important}}
+body.proxmox-control-center .ucc-header{width:100%!important;max-width:100%!important;margin-left:0!important;margin-right:0!important;height:112px!important;min-height:112px!important}
+body.proxmox-control-center .ucc-header>div:first-child{transform:translateY(16px)!important}
+body.proxmox-control-center .ucc-header .controls{transform:translateY(16px)!important}
+body.proxmox-control-center .tabs,body.proxmox-control-center .ucc-tabs{top:112px!important}
+@media(max-width:760px){body.proxmox-control-center .ucc-header{height:auto!important;min-height:112px!important}.tabs,.ucc-tabs{top:auto!important}}
