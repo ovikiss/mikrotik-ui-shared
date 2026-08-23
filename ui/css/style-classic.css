@@ -722,6 +722,7 @@ body.proxmox-control-center .panel .fan-list{display:grid!important;grid-templat
 body.proxmox-control-center .panel .curve-panel,body.proxmox-control-center .panel .fan-panel,body.proxmox-control-center .panel .share-card,body.proxmox-control-center .panel .ups-section{width:100%!important;box-sizing:border-box!important;margin:0 0 20px!important}
 body.proxmox-control-center .panel .ups-card,body.proxmox-control-center .panel .share-card,body.proxmox-control-center .panel .fan-panel,body.proxmox-control-center .panel .curve-panel{padding:12px!important}
 body.proxmox-control-center .panel .ssh-panel{padding:22px!important}
+body.proxmox-control-center .panel .ssh-panel+.fan-panel{margin-top:20px!important}
 body.proxmox-control-center .panel>.dashboard-container.app{border:0!important}
 body.proxmox-control-center .panel .section-heading{min-height:91px!important;box-sizing:border-box!important}
 body.proxmox-control-center .panel .hero{min-height:196px!important;box-sizing:border-box!important}
