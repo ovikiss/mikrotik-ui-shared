@@ -737,8 +737,7 @@ body.proxmox-control-center .panel .share-card table th,body.proxmox-control-cen
 @media(max-width:900px){body.proxmox-control-center .panel .ups-stats{grid-template-columns:repeat(2,minmax(0,1fr))!important}body.proxmox-control-center .panel .fan-list{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media(max-width:600px){body.proxmox-control-center .panel .ups-stats,body.proxmox-control-center .panel .fan-list{grid-template-columns:1fr!important}}
 body.proxmox-control-center .panel button{font:inherit!important;min-height:40px!important;padding:9px 16px!important;border:.5px solid var(--border)!important;border-radius:10px!important;background:var(--card-strong)!important;color:var(--text)!important;box-shadow:var(--glass-inset)!important}
-body.proxmox-control-center{background:var(--bg)!important;color:var(--text)!important}
-body.proxmox-control-center .shell{background:var(--wallpaper-url) center/cover no-repeat fixed,var(--bg)!important;min-height:100vh!important}
+body.proxmox-control-center{background:var(--wallpaper-url) center/cover no-repeat fixed,var(--bg)!important;color:var(--text)!important}
 body.proxmox-control-center .modal{background:rgba(5,10,20,.72)!important;backdrop-filter:blur(4px)!important;-webkit-backdrop-filter:blur(4px)!important}
 body.proxmox-control-center .modal{align-items:flex-start!important;justify-items:center!important;padding-top:110px!important;box-sizing:border-box!important;overflow-y:auto!important}
 body.proxmox-control-center .modal .dialog{margin-top:110px!important}
