@@ -726,3 +726,8 @@ body.proxmox-control-center.fancontrol-app .curve-row{background:var(--card)!imp
 body.proxmox-control-center.fancontrol-app .curve-row:nth-child(odd){background:var(--card-strong)!important}
 body.proxmox-control-center.fancontrol-app .grid-head .full{color:#f59e0b!important}body.proxmox-control-center.fancontrol-app .grid-head .cool{color:var(--blue)!important}body.proxmox-control-center.fancontrol-app .grid-head .quiet{color:#35d98b!important}
 body.proxmox-control-center.fancontrol-app .pair em{font-style:normal!important;align-self:center!important;line-height:1!important}
+/* Unified control-center header geometry. */
+body.proxmox-control-center .ucc-header{width:calc(100% + 24px)!important;margin-left:-12px!important;margin-right:-12px!important;height:88px!important;min-height:88px!important}
+body.proxmox-control-center .ucc-header>div:first-child{transform:translateY(10px)!important}
+body.proxmox-control-center .ucc-header .controls{transform:translateY(12px)!important}
+body.proxmox-control-center .tabs,body.proxmox-control-center .ucc-tabs{top:88px!important}
