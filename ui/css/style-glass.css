@@ -1417,3 +1417,4 @@ body.proxmox-control-center,body.proxmox-control-center.share-app,body.proxmox-c
 body.proxmox-control-center .ucc-header{height:71.25px!important;min-height:71.25px!important;box-sizing:border-box!important}
 body.proxmox-control-center .ucc-header [data-header-control="pollInterval"]{display:none!important}
 body.proxmox-control-center .ucc-header .brand-custom-mark{width:44px!important;height:44px!important;max-width:44px!important;max-height:44px!important;flex:0 0 44px!important;object-fit:contain!important}
+body.proxmox-control-center select,body.proxmox-control-center input:not([type="checkbox"]):not([type="radio"]),body.proxmox-control-center textarea{background:var(--card-strong)!important;color:var(--text)!important;border:.5px solid var(--border)!important;border-radius:10px!important;font:inherit!important}
