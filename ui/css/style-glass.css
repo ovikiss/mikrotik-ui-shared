@@ -107,7 +107,7 @@
         margin-bottom: 0 !important;
       }
 
-      .card {
+      .dashboard-grid > .card {
         grid-area: main;
         align-self: start;
         margin-bottom: 0 !important;
