@@ -1411,6 +1411,8 @@ body.proxmox-control-center .status-pill:not(.off),body.proxmox-control-center .
 body.proxmox-control-center .text-success,body.proxmox-control-center .text-green{color:#35d98b!important;font-weight:700!important}
 body.proxmox-control-center .ucc-header .brand-text{font-weight:500!important}
 body.proxmox-control-center .panel{background:transparent!important;color:var(--text)!important}
+body.proxmox-control-center .panel .ups-connections{width:100%!important;grid-template-columns:minmax(0,1fr)!important;box-sizing:border-box!important}
+body.proxmox-control-center .panel .ups-connection{width:100%!important;max-width:none!important;box-sizing:border-box!important}
 body.proxmox-control-center .panel button{font:inherit!important;min-height:40px!important;padding:9px 16px!important;border:.5px solid var(--border)!important;border-radius:10px!important;background:var(--card-strong)!important;color:var(--text)!important;box-shadow:var(--glass-inset)!important}
 body.proxmox-control-center,body.proxmox-control-center.share-app,body.proxmox-control-center.ups-app,body.proxmox-control-center.fancontrol-app{background:linear-gradient(180deg,var(--overlay-dim),var(--overlay-dim)),radial-gradient(130% 120% at 0% 0%,var(--overlay-a),rgba(31,84,160,0) 54%),radial-gradient(120% 120% at 100% 100%,var(--overlay-b),rgba(23,62,126,0) 50%),var(--wallpaper-url) center/cover no-repeat fixed,var(--bg)!important;color:var(--text)!important}
 body.proxmox-control-center .modal{background:rgba(5,10,20,.72)!important;backdrop-filter:blur(4px)!important;-webkit-backdrop-filter:blur(4px)!important}
